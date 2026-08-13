@@ -1,0 +1,64 @@
+# render.yaml — Render Blueprint for ResumeAI v2
+# ---------------------------------------------------------------
+# Deploys the whole app as two services from this one repo:
+#   • resumeai-api  — the Express backend (Node web service)
+#   • resumeai-web  — the React frontend (static site)
+#
+# HOW TO USE
+#   1. Push this file to your repo (done).
+#   2. On https://dashboard.render.com → New → Blueprint → pick this repo.
+#   3. Render creates both services. Then set the two cross-URLs
+#      (they can't be known until the services exist — see below).
+#
+# ENV VARS YOU MUST SET AFTER THE FIRST DEPLOY (marked sync:false):
+#   • resumeai-api  → CLIENT_ORIGIN   = the resumeai-web URL   (e.g. https://resumeai-web.onrender.com)
+#   • resumeai-web  → REACT_APP_API_URL = the resumeai-api URL + /api (e.g. https://resumeai-api.onrender.com/api)
+#   Set them, then trigger a redeploy of each service once.
+#
+# NOTES
+#   • JWT_SECRET is generated automatically by Render (secure random).
+#   • Free tier disk is EPHEMERAL: the JSON database (backend/database/db.json)
+#     resets whenever the service restarts or redeploys. Fine for a demo.
+#     For permanent data, add a Render Disk mounted at /opt/render/project/src/backend/database
+#     (paid) or move to a host with a volume.
+#   • PDF export uses the pdfkit fallback here (no Chromium on the Node runtime),
+#     so designer templates export as single-column PDFs. DOCX/TXT/HTML/JSON and
+#     all on-screen previews are unaffected. Use the Docker route if you need
+#     Chromium-rendered designer PDFs online.
+# ---------------------------------------------------------------
+
+services:
+  # ---------- Backend API ----------
+  - type: web
+    name: resumeai-api
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: JWT_SECRET
+        generateValue: true        # Render generates a long secure random value
+      - key: CLIENT_ORIGIN
+        sync: false                # set to the resumeai-web URL after first deploy
+      - key: GEMINI_API_KEY
+        sync: false                # optional — leave unset to use the local-rules fallback
+      - key: NODE_VERSION
+        value: "20"
+
+  # ---------- Frontend (static site) ----------
+  - type: web
+    name: resumeai-web
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: build
+    envVars:
+      - key: REACT_APP_API_URL
+        sync: false                # set to https://<resumeai-api-url>/api after first deploy
+    routes:
+      # SPA fallback so client-side routes (/dashboard, /export, ...) resolve.
+      - type: rewrite
+        source: /*
+        destination: /index.html

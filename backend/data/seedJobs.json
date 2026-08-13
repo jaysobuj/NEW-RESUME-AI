@@ -1,0 +1,2004 @@
+[
+  {
+    "id": "job_001",
+    "title": "Junior Software Engineer",
+    "company": "Stonebridge Manufacturing",
+    "location": "Adelaide, SA",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "salaryMin": 53000,
+    "salaryMax": 109000,
+    "currency": "AUD",
+    "description": "We're looking for a Junior Software Engineer to design, build and maintain web applications used by thousands of customers. You'll work across the stack, write clean maintainable code, participate in code review, and collaborate closely with product and design. Strong fundamentals in data structures, algorithms and software design are essential. Typically suited to candidates with 0-2 years of relevant experience. Key skills: JavaScript, SQL, Git, TypeScript, React, Docker.",
+    "requiredSkills": [
+      "JavaScript",
+      "SQL",
+      "Git",
+      "TypeScript",
+      "React",
+      "Docker"
+    ],
+    "postedDate": "2026-07-17",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Entry-level",
+    "responsibilities": [
+      "You'll work across the stack, write clean maintainable code, participate in code review, and collaborate closely with product and design.",
+      "Strong fundamentals in data structures, algorithms and software design are essential."
+    ],
+    "preferredSkills": [
+      "Analytical Thinking",
+      "Attention to Detail"
+    ]
+  },
+  {
+    "id": "job_002",
+    "title": "Software Engineer",
+    "company": "Meridian Retail",
+    "location": "Sydney, NSW",
+    "workMode": "Hybrid",
+    "jobType": "Contract",
+    "salaryMin": 70000,
+    "salaryMax": 145000,
+    "currency": "AUD",
+    "description": "We're looking for a Software Engineer to design, build and maintain web applications used by thousands of customers. You'll work across the stack, write clean maintainable code, participate in code review, and collaborate closely with product and design. Strong fundamentals in data structures, algorithms and software design are essential. Typically suited to candidates with 2-5 years of relevant experience. Key skills: Docker, Node.js, REST APIs, JavaScript.",
+    "requiredSkills": [
+      "Docker",
+      "Node.js",
+      "REST APIs",
+      "JavaScript"
+    ],
+    "postedDate": "2026-07-16",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Contract",
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "You'll work across the stack, write clean maintainable code, participate in code review, and collaborate closely with product and design.",
+      "Strong fundamentals in data structures, algorithms and software design are essential."
+    ],
+    "preferredSkills": [
+      "Communication",
+      "Analytical Thinking"
+    ]
+  },
+  {
+    "id": "job_003",
+    "title": "Frontend Developer",
+    "company": "Foxglove Biotech",
+    "location": "Brisbane, QLD",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "salaryMin": 65000,
+    "salaryMax": 130000,
+    "currency": "AUD",
+    "description": "As a Frontend Developer you'll build responsive, accessible user interfaces in React, translate Figma designs into pixel-perfect components, and optimise performance across devices. Close collaboration with UX designers and backend engineers is part of daily work. Typically suited to candidates with 2-5 years of relevant experience. Key skills: JavaScript, CSS, TypeScript, HTML, React.",
+    "requiredSkills": [
+      "JavaScript",
+      "CSS",
+      "TypeScript",
+      "HTML",
+      "React"
+    ],
+    "postedDate": "2026-07-15",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "Close collaboration with UX designers and backend engineers is part of daily work."
+    ],
+    "preferredSkills": [
+      "Problem Solving",
+      "Communication"
+    ]
+  },
+  {
+    "id": "job_004",
+    "title": "Senior Frontend Developer",
+    "company": "Silverline Bank",
+    "location": "Remote (Australia)",
+    "workMode": "Remote",
+    "jobType": "Part-time",
+    "salaryMin": 88000,
+    "salaryMax": 176000,
+    "currency": "AUD",
+    "description": "As a Senior Frontend Developer you'll build responsive, accessible user interfaces in React, translate Figma designs into pixel-perfect components, and optimise performance across devices. Close collaboration with UX designers and backend engineers is part of daily work. Typically suited to candidates with 5+ years of relevant experience. Key skills: React, Redux, Accessibility, Webpack, JavaScript, CSS.",
+    "requiredSkills": [
+      "React",
+      "Redux",
+      "Accessibility",
+      "Webpack",
+      "JavaScript",
+      "CSS"
+    ],
+    "postedDate": "2026-07-14",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Part-time",
+    "experienceLevel": "Senior",
+    "responsibilities": [
+      "Close collaboration with UX designers and backend engineers is part of daily work."
+    ],
+    "preferredSkills": [
+      "Teamwork",
+      "Problem Solving"
+    ]
+  },
+  {
+    "id": "job_005",
+    "title": "Senior Backend Developer",
+    "company": "Vertex Analytics",
+    "location": "Canberra, ACT",
+    "workMode": "Hybrid",
+    "jobType": "Full-time",
+    "salaryMin": 101000,
+    "salaryMax": 203000,
+    "currency": "AUD",
+    "description": "We need a Senior Backend Developer to design and scale server-side systems, APIs and databases. You'll own service reliability, write automated tests, and help evolve our microservices architecture as traffic grows. Typically suited to candidates with 5+ years of relevant experience. Key skills: REST APIs, SQL, PostgreSQL, AWS.",
+    "requiredSkills": [
+      "REST APIs",
+      "SQL",
+      "PostgreSQL",
+      "AWS"
+    ],
+    "postedDate": "2026-07-13",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Senior",
+    "responsibilities": [
+      "You'll own service reliability, write automated tests, and help evolve our microservices architecture as traffic grows."
+    ],
+    "preferredSkills": [
+      "Time Management",
+      "Teamwork"
+    ]
+  },
+  {
+    "id": "job_006",
+    "title": "Junior Backend Developer",
+    "company": "Lighthouse Education",
+    "location": "Adelaide, SA",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "salaryMin": 56000,
+    "salaryMax": 113000,
+    "currency": "AUD",
+    "description": "We need a Junior Backend Developer to design and scale server-side systems, APIs and databases. You'll own service reliability, write automated tests, and help evolve our microservices architecture as traffic grows. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Python, Docker, Microservices, Node.js, REST APIs.",
+    "requiredSkills": [
+      "Python",
+      "Docker",
+      "Microservices",
+      "Node.js",
+      "REST APIs"
+    ],
+    "postedDate": "2026-07-12",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Entry-level",
+    "responsibilities": [
+      "You'll own service reliability, write automated tests, and help evolve our microservices architecture as traffic grows."
+    ],
+    "preferredSkills": [
+      "Documentation",
+      "Time Management"
+    ]
+  },
+  {
+    "id": "job_007",
+    "title": "Junior Full Stack Developer",
+    "company": "Ironwood Financial",
+    "location": "Melbourne, VIC",
+    "workMode": "Hybrid",
+    "jobType": "Contract",
+    "salaryMin": 53000,
+    "salaryMax": 105000,
+    "currency": "AUD",
+    "description": "A Junior Full Stack Developer role covering both frontend and backend — from building React interfaces to designing the APIs and data models behind them. You'll ship features end-to-end and take ownership of quality across the stack. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Node.js, MongoDB, JavaScript, SQL, AWS, TypeScript.",
+    "requiredSkills": [
+      "Node.js",
+      "MongoDB",
+      "JavaScript",
+      "SQL",
+      "AWS",
+      "TypeScript"
+    ],
+    "postedDate": "2026-07-11",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Contract",
+    "experienceLevel": "Entry-level",
+    "responsibilities": [
+      "A Junior Full Stack Developer role covering both frontend and backend — from building React interfaces to designing the APIs and data models behind them.",
+      "You'll ship features end-to-end and take ownership of quality across the stack."
+    ],
+    "preferredSkills": [
+      "Stakeholder Management",
+      "Documentation"
+    ]
+  },
+  {
+    "id": "job_008",
+    "title": "Full Stack Developer",
+    "company": "Willow Creek Agency",
+    "location": "Brisbane, QLD",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "salaryMin": 70000,
+    "salaryMax": 140000,
+    "currency": "AUD",
+    "description": "A Full Stack Developer role covering both frontend and backend — from building React interfaces to designing the APIs and data models behind them. You'll ship features end-to-end and take ownership of quality across the stack. Typically suited to candidates with 2-5 years of relevant experience. Key skills: JavaScript, SQL, AWS, TypeScript.",
+    "requiredSkills": [
+      "JavaScript",
+      "SQL",
+      "AWS",
+      "TypeScript"
+    ],
+    "postedDate": "2026-07-10",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "A Full Stack Developer role covering both frontend and backend — from building React interfaces to designing the APIs and data models behind them.",
+      "You'll ship features end-to-end and take ownership of quality across the stack."
+    ],
+    "preferredSkills": [
+      "Attention to Detail",
+      "Stakeholder Management"
+    ]
+  },
+  {
+    "id": "job_009",
+    "title": "DevOps Engineer",
+    "company": "Fernwood Media",
+    "location": "Perth, WA",
+    "workMode": "On-site",
+    "jobType": "Part-time",
+    "salaryMin": 90000,
+    "salaryMax": 160000,
+    "currency": "AUD",
+    "description": "Join us as a DevOps Engineer to build and maintain CI/CD pipelines, manage cloud infrastructure as code, and improve system reliability and observability. Experience with containerisation and infrastructure automation is key. Typically suited to candidates with 2-5 years of relevant experience. Key skills: Docker, Python, Terraform, AWS, Kubernetes.",
+    "requiredSkills": [
+      "Docker",
+      "Python",
+      "Terraform",
+      "AWS",
+      "Kubernetes"
+    ],
+    "postedDate": "2026-07-09",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Part-time",
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "Join us as a DevOps Engineer to build and maintain CI/CD pipelines, manage cloud infrastructure as code, and improve system reliability and observability.",
+      "Experience with containerisation and infrastructure automation is key."
+    ],
+    "preferredSkills": [
+      "Analytical Thinking",
+      "Attention to Detail"
+    ]
+  },
+  {
+    "id": "job_010",
+    "title": "Senior DevOps Engineer",
+    "company": "Northwind Digital",
+    "location": "Canberra, ACT",
+    "workMode": "Hybrid",
+    "jobType": "Full-time",
+    "salaryMin": 122000,
+    "salaryMax": 216000,
+    "currency": "AUD",
+    "description": "Join us as a Senior DevOps Engineer to build and maintain CI/CD pipelines, manage cloud infrastructure as code, and improve system reliability and observability. Experience with containerisation and infrastructure automation is key. Typically suited to candidates with 5+ years of relevant experience. Key skills: Terraform, AWS, Kubernetes, Monitoring, CI/CD, Linux.",
+    "requiredSkills": [
+      "Terraform",
+      "AWS",
+      "Kubernetes",
+      "Monitoring",
+      "CI/CD",
+      "Linux"
+    ],
+    "postedDate": "2026-07-08",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Senior",
+    "responsibilities": [
+      "Join us as a Senior DevOps Engineer to build and maintain CI/CD pipelines, manage cloud infrastructure as code, and improve system reliability and observability.",
+      "Experience with containerisation and infrastructure automation is key."
+    ],
+    "preferredSkills": [
+      "Stakeholder Management",
+      "Documentation"
+    ]
+  },
+  {
+    "id": "job_011",
+    "title": "Senior Data Analyst",
+    "company": "Beacon Insurance",
+    "location": "Sydney, NSW",
+    "workMode": "Hybrid",
+    "jobType": "Full-time",
+    "salaryMin": 88000,
+    "salaryMax": 155000,
+    "currency": "AUD",
+    "description": "As a Senior Data Analyst you'll turn raw data into actionable insight — building dashboards, running ad-hoc analysis, and partnering with stakeholders to answer business questions with data. Typically suited to candidates with 5+ years of relevant experience. Key skills: Excel, Python, Tableau, Power BI.",
+    "requiredSkills": [
+      "Excel",
+      "Python",
+      "Tableau",
+      "Power BI"
+    ],
+    "postedDate": "2026-08-06",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Senior",
+    "responsibilities": [
+      "As a Senior Data Analyst you'll turn raw data into actionable insight — building dashboards, running ad-hoc analysis, and partnering with stakeholders to answer business questions with data."
+    ],
+    "preferredSkills": [
+      "Attention to Detail",
+      "Stakeholder Management"
+    ]
+  },
+  {
+    "id": "job_012",
+    "title": "Junior Data Analyst",
+    "company": "Harbor & Co",
+    "location": "Melbourne, VIC",
+    "workMode": "Hybrid",
+    "jobType": "Contract",
+    "salaryMin": 49000,
+    "salaryMax": 86000,
+    "currency": "AUD",
+    "description": "As a Junior Data Analyst you'll turn raw data into actionable insight — building dashboards, running ad-hoc analysis, and partnering with stakeholders to answer business questions with data. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Power BI, SQL, Statistics, Data Visualization, Excel.",
+    "requiredSkills": [
+      "Power BI",
+      "SQL",
+      "Statistics",
+      "Data Visualization",
+      "Excel"
+    ],
+    "postedDate": "2026-08-05",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Contract",
+    "experienceLevel": "Entry-level",
+    "responsibilities": [
+      "As a Junior Data Analyst you'll turn raw data into actionable insight — building dashboards, running ad-hoc analysis, and partnering with stakeholders to answer business questions with data."
+    ],
+    "preferredSkills": [
+      "Analytical Thinking",
+      "Attention to Detail"
+    ]
+  },
+  {
+    "id": "job_013",
+    "title": "Junior Data Scientist",
+    "company": "Nimbus Data",
+    "location": "Remote (Australia)",
+    "workMode": "Remote",
+    "jobType": "Full-time",
+    "salaryMin": 68000,
+    "salaryMax": 124000,
+    "currency": "AUD",
+    "description": "We're hiring a Junior Data Scientist to build predictive models, run experiments, and translate findings into product and business decisions. Strong statistical thinking and Python fluency required. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Data Visualization, A/B Testing, Python, Pandas, Machine Learning, SQL.",
+    "requiredSkills": [
+      "Data Visualization",
+      "A/B Testing",
+      "Python",
+      "Pandas",
+      "Machine Learning",
+      "SQL"
+    ],
+    "postedDate": "2026-08-04",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Entry-level",
+    "responsibilities": [
+      "We're hiring a Junior Data Scientist to build predictive models, run experiments, and translate findings into product and business decisions.",
+      "Strong statistical thinking and Python fluency required."
+    ],
+    "preferredSkills": [
+      "Communication",
+      "Analytical Thinking"
+    ]
+  },
+  {
+    "id": "job_014",
+    "title": "Data Scientist",
+    "company": "Sunrise Health Group",
+    "location": "Perth, WA",
+    "workMode": "On-site",
+    "jobType": "Part-time",
+    "salaryMin": 90000,
+    "salaryMax": 165000,
+    "currency": "AUD",
+    "description": "We're hiring a Data Scientist to build predictive models, run experiments, and translate findings into product and business decisions. Strong statistical thinking and Python fluency required. Typically suited to candidates with 2-5 years of relevant experience. Key skills: Machine Learning, SQL, Statistics, Data Visualization.",
+    "requiredSkills": [
+      "Machine Learning",
+      "SQL",
+      "Statistics",
+      "Data Visualization"
+    ],
+    "postedDate": "2026-08-03",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Part-time",
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "We're hiring a Data Scientist to build predictive models, run experiments, and translate findings into product and business decisions.",
+      "Strong statistical thinking and Python fluency required."
+    ],
+    "preferredSkills": [
+      "Problem Solving",
+      "Communication"
+    ]
+  },
+  {
+    "id": "job_015",
+    "title": "Machine Learning Engineer",
+    "company": "Tidewater Energy",
+    "location": "Adelaide, SA",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "salaryMin": 100000,
+    "salaryMax": 175000,
+    "currency": "AUD",
+    "description": "A Machine Learning Engineer role focused on productionising ML models — building training pipelines, deploying models at scale, and monitoring performance in production. Typically suited to candidates with 2-5 years of relevant experience. Key skills: TensorFlow, SQL, AWS, Python, Docker.",
+    "requiredSkills": [
+      "TensorFlow",
+      "SQL",
+      "AWS",
+      "Python",
+      "Docker"
+    ],
+    "postedDate": "2026-08-02",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "A Machine Learning Engineer role focused on productionising ML models — building training pipelines, deploying models at scale, and monitoring performance in production."
+    ],
+    "preferredSkills": [
+      "Teamwork",
+      "Problem Solving"
+    ]
+  },
+  {
+    "id": "job_016",
+    "title": "Senior Machine Learning Engineer",
+    "company": "Anchorpoint Logistics",
+    "location": "Sydney, NSW",
+    "workMode": "Hybrid",
+    "jobType": "Full-time",
+    "salaryMin": 135000,
+    "salaryMax": 236000,
+    "currency": "AUD",
+    "description": "A Senior Machine Learning Engineer role focused on productionising ML models — building training pipelines, deploying models at scale, and monitoring performance in production. Typically suited to candidates with 5+ years of relevant experience. Key skills: Python, Docker, PyTorch, Data Pipelines, Machine Learning, TensorFlow.",
+    "requiredSkills": [
+      "Python",
+      "Docker",
+      "PyTorch",
+      "Data Pipelines",
+      "Machine Learning",
+      "TensorFlow"
+    ],
+    "postedDate": "2026-08-01",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Senior",
+    "responsibilities": [
+      "A Senior Machine Learning Engineer role focused on productionising ML models — building training pipelines, deploying models at scale, and monitoring performance in production."
+    ],
+    "preferredSkills": [
+      "Time Management",
+      "Teamwork"
+    ]
+  },
+  {
+    "id": "job_017",
+    "title": "Senior Product Manager",
+    "company": "BluePeak Technologies",
+    "location": "Brisbane, QLD",
+    "workMode": "On-site",
+    "jobType": "Contract",
+    "salaryMin": 128000,
+    "salaryMax": 230000,
+    "currency": "AUD",
+    "description": "As a Senior Product Manager you'll define product strategy, prioritise the roadmap, and work closely with engineering and design to ship features that solve real customer problems. Typically suited to candidates with 5+ years of relevant experience. Key skills: Product Strategy, Analytics, Roadmapping, Agile.",
+    "requiredSkills": [
+      "Product Strategy",
+      "Analytics",
+      "Roadmapping",
+      "Agile"
+    ],
+    "postedDate": "2026-07-31",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Contract",
+    "experienceLevel": "Senior",
+    "responsibilities": [
+      "As a Senior Product Manager you'll define product strategy, prioritise the roadmap, and work closely with engineering and design to ship features that solve real customer problems."
+    ],
+    "preferredSkills": [
+      "Documentation",
+      "Time Management"
+    ]
+  },
+  {
+    "id": "job_018",
+    "title": "Junior Product Manager",
+    "company": "Crestview Consulting",
+    "location": "Remote (Australia)",
+    "workMode": "Remote",
+    "jobType": "Full-time",
+    "salaryMin": 71000,
+    "salaryMax": 128000,
+    "currency": "AUD",
+    "description": "As a Junior Product Manager you'll define product strategy, prioritise the roadmap, and work closely with engineering and design to ship features that solve real customer problems. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Agile, User Research, Stakeholder Management, Product Strategy, Analytics.",
+    "requiredSkills": [
+      "Agile",
+      "User Research",
+      "Stakeholder Management",
+      "Product Strategy",
+      "Analytics"
+    ],
+    "postedDate": "2026-07-30",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Entry-level",
+    "responsibilities": [
+      "As a Junior Product Manager you'll define product strategy, prioritise the roadmap, and work closely with engineering and design to ship features that solve real customer problems."
+    ],
+    "preferredSkills": [
+      "Stakeholder Management",
+      "Documentation"
+    ]
+  },
+  {
+    "id": "job_019",
+    "title": "Junior UX/UI Designer",
+    "company": "Clearwater Software",
+    "location": "Canberra, ACT",
+    "workMode": "Hybrid",
+    "jobType": "Part-time",
+    "salaryMin": 53000,
+    "salaryMax": 101000,
+    "currency": "AUD",
+    "description": "We're seeking a Junior UX/UI Designer to research user needs, create wireframes and high-fidelity prototypes, and maintain a consistent design system across our products. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Wireframing, Prototyping, Figma, User Research, Accessibility, Design Systems.",
+    "requiredSkills": [
+      "Wireframing",
+      "Prototyping",
+      "Figma",
+      "User Research",
+      "Accessibility",
+      "Design Systems"
+    ],
+    "postedDate": "2026-07-29",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Part-time",
+    "experienceLevel": "Entry-level",
+    "responsibilities": [
+      "We're seeking a Junior UX/UI Designer to research user needs, create wireframes and high-fidelity prototypes, and maintain a consistent design system across our products."
+    ],
+    "preferredSkills": [
+      "Attention to Detail",
+      "Stakeholder Management"
+    ]
+  },
+  {
+    "id": "job_020",
+    "title": "UX/UI Designer",
+    "company": "Stonebridge Manufacturing",
+    "location": "Adelaide, SA",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "salaryMin": 70000,
+    "salaryMax": 135000,
+    "currency": "AUD",
+    "description": "We're seeking a UX/UI Designer to research user needs, create wireframes and high-fidelity prototypes, and maintain a consistent design system across our products. Typically suited to candidates with 2-5 years of relevant experience. Key skills: Wireframing, Prototyping, Figma, User Research.",
+    "requiredSkills": [
+      "Wireframing",
+      "Prototyping",
+      "Figma",
+      "User Research"
+    ],
+    "postedDate": "2026-07-28",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "We're seeking a UX/UI Designer to research user needs, create wireframes and high-fidelity prototypes, and maintain a consistent design system across our products."
+    ],
+    "preferredSkills": [
+      "Documentation",
+      "Time Management"
+    ]
+  },
+  {
+    "id": "job_021",
+    "title": "QA Engineer",
+    "company": "Cobalt Cloud",
+    "location": "Melbourne, VIC",
+    "workMode": "Hybrid",
+    "jobType": "Full-time",
+    "salaryMin": 65000,
+    "salaryMax": 120000,
+    "currency": "AUD",
+    "description": "A QA Engineer role building automated test suites, performing exploratory testing, and working with engineers to raise overall product quality before release. Typically suited to candidates with 2-5 years of relevant experience. Key skills: Cypress, Manual Testing, Test Automation, Selenium, JavaScript.",
+    "requiredSkills": [
+      "Cypress",
+      "Manual Testing",
+      "Test Automation",
+      "Selenium",
+      "JavaScript"
+    ],
+    "postedDate": "2026-07-27",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "A QA Engineer role building automated test suites, performing exploratory testing, and working with engineers to raise overall product quality before release."
+    ],
+    "preferredSkills": [
+      "Stakeholder Management",
+      "Documentation"
+    ]
+  },
+  {
+    "id": "job_022",
+    "title": "Senior QA Engineer",
+    "company": "Foxglove Biotech",
+    "location": "Brisbane, QLD",
+    "workMode": "On-site",
+    "jobType": "Contract",
+    "salaryMin": 88000,
+    "salaryMax": 162000,
+    "currency": "AUD",
+    "description": "A Senior QA Engineer role building automated test suites, performing exploratory testing, and working with engineers to raise overall product quality before release. Typically suited to candidates with 5+ years of relevant experience. Key skills: JavaScript, API Testing, CI/CD, Cypress, Manual Testing, Test Automation.",
+    "requiredSkills": [
+      "JavaScript",
+      "API Testing",
+      "CI/CD",
+      "Cypress",
+      "Manual Testing",
+      "Test Automation"
+    ],
+    "postedDate": "2026-07-26",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Contract",
+    "experienceLevel": "Senior",
+    "responsibilities": [
+      "A Senior QA Engineer role building automated test suites, performing exploratory testing, and working with engineers to raise overall product quality before release."
+    ],
+    "preferredSkills": [
+      "Attention to Detail",
+      "Stakeholder Management"
+    ]
+  },
+  {
+    "id": "job_023",
+    "title": "Senior Cloud Engineer",
+    "company": "Orchard Robotics",
+    "location": "Perth, WA",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "salaryMin": 122000,
+    "salaryMax": 223000,
+    "currency": "AUD",
+    "description": "As a Senior Cloud Engineer you'll design and manage secure, scalable cloud infrastructure, automate provisioning, and support migration of legacy systems to the cloud. Typically suited to candidates with 5+ years of relevant experience. Key skills: Security, Terraform, AWS, Kubernetes.",
+    "requiredSkills": [
+      "Security",
+      "Terraform",
+      "AWS",
+      "Kubernetes"
+    ],
+    "postedDate": "2026-07-25",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Senior",
+    "responsibilities": [
+      "As a Senior Cloud Engineer you'll design and manage secure, scalable cloud infrastructure, automate provisioning, and support migration of legacy systems to the cloud."
+    ],
+    "preferredSkills": [
+      "Analytical Thinking",
+      "Attention to Detail"
+    ]
+  },
+  {
+    "id": "job_024",
+    "title": "Junior Cloud Engineer",
+    "company": "Vertex Analytics",
+    "location": "Canberra, ACT",
+    "workMode": "Hybrid",
+    "jobType": "Part-time",
+    "salaryMin": 68000,
+    "salaryMax": 124000,
+    "currency": "AUD",
+    "description": "As a Junior Cloud Engineer you'll design and manage secure, scalable cloud infrastructure, automate provisioning, and support migration of legacy systems to the cloud. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Terraform, AWS, Kubernetes, Networking, Azure.",
+    "requiredSkills": [
+      "Terraform",
+      "AWS",
+      "Kubernetes",
+      "Networking",
+      "Azure"
+    ],
+    "postedDate": "2026-07-24",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Part-time",
+    "experienceLevel": "Entry-level",
+    "responsibilities": [
+      "As a Junior Cloud Engineer you'll design and manage secure, scalable cloud infrastructure, automate provisioning, and support migration of legacy systems to the cloud."
+    ],
+    "preferredSkills": [
+      "Communication",
+      "Analytical Thinking"
+    ]
+  },
+  {
+    "id": "job_025",
+    "title": "Junior Cybersecurity Analyst",
+    "company": "Palisade Games",
+    "location": "Sydney, NSW",
+    "workMode": "Hybrid",
+    "jobType": "Full-time",
+    "salaryMin": 64000,
+    "salaryMax": 116000,
+    "currency": "AUD",
+    "description": "We need a Junior Cybersecurity Analyst to monitor for threats, respond to incidents, and strengthen our security posture through audits and risk assessments. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Python, Risk Assessment, Network Security, Incident Response, Compliance, SIEM.",
+    "requiredSkills": [
+      "Python",
+      "Risk Assessment",
+      "Network Security",
+      "Incident Response",
+      "Compliance",
+      "SIEM"
+    ],
+    "postedDate": "2026-07-23",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Entry-level",
+    "responsibilities": [
+      "We need a Junior Cybersecurity Analyst to monitor for threats, respond to incidents, and strengthen our security posture through audits and risk assessments."
+    ],
+    "preferredSkills": [
+      "Problem Solving",
+      "Communication"
+    ]
+  },
+  {
+    "id": "job_026",
+    "title": "Cybersecurity Analyst",
+    "company": "Ironwood Financial",
+    "location": "Melbourne, VIC",
+    "workMode": "Hybrid",
+    "jobType": "Full-time",
+    "salaryMin": 85000,
+    "salaryMax": 155000,
+    "currency": "AUD",
+    "description": "We need a Cybersecurity Analyst to monitor for threats, respond to incidents, and strengthen our security posture through audits and risk assessments. Typically suited to candidates with 2-5 years of relevant experience. Key skills: Risk Assessment, Network Security, Incident Response, Compliance.",
+    "requiredSkills": [
+      "Risk Assessment",
+      "Network Security",
+      "Incident Response",
+      "Compliance"
+    ],
+    "postedDate": "2026-07-22",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "We need a Cybersecurity Analyst to monitor for threats, respond to incidents, and strengthen our security posture through audits and risk assessments."
+    ],
+    "preferredSkills": [
+      "Teamwork",
+      "Problem Solving"
+    ]
+  },
+  {
+    "id": "job_027",
+    "title": "Mobile Developer (iOS)",
+    "company": "Granite Peak Mining",
+    "location": "Remote (Australia)",
+    "workMode": "Remote",
+    "jobType": "Contract",
+    "salaryMin": 75000,
+    "salaryMax": 145000,
+    "currency": "AUD",
+    "description": "A iOS Developer role building and maintaining our flagship mobile app, working closely with design and backend teams to ship polished, performant features. Typically suited to candidates with 2-5 years of relevant experience. Key skills: Swift, Xcode, REST APIs, Mobile UI Design, iOS.",
+    "requiredSkills": [
+      "Swift",
+      "Xcode",
+      "REST APIs",
+      "Mobile UI Design",
+      "iOS"
+    ],
+    "postedDate": "2026-07-21",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Contract",
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "A iOS Developer role building and maintaining our flagship mobile app, working closely with design and backend teams to ship polished, performant features."
+    ],
+    "preferredSkills": [
+      "Time Management",
+      "Teamwork"
+    ]
+  },
+  {
+    "id": "job_028",
+    "title": "Senior Mobile Developer (iOS)",
+    "company": "Fernwood Media",
+    "location": "Perth, WA",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "salaryMin": 101000,
+    "salaryMax": 196000,
+    "currency": "AUD",
+    "description": "A Senior iOS Developer role building and maintaining our flagship mobile app, working closely with design and backend teams to ship polished, performant features. Typically suited to candidates with 5+ years of relevant experience. Key skills: REST APIs, Mobile UI Design, iOS, Git, Swift, Xcode.",
+    "requiredSkills": [
+      "REST APIs",
+      "Mobile UI Design",
+      "iOS",
+      "Git",
+      "Swift",
+      "Xcode"
+    ],
+    "postedDate": "2026-07-20",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Senior",
+    "responsibilities": [
+      "A Senior iOS Developer role building and maintaining our flagship mobile app, working closely with design and backend teams to ship polished, performant features."
+    ],
+    "preferredSkills": [
+      "Documentation",
+      "Time Management"
+    ]
+  },
+  {
+    "id": "job_029",
+    "title": "Senior Mobile Developer (Android)",
+    "company": "Solstice Labs",
+    "location": "Adelaide, SA",
+    "workMode": "On-site",
+    "jobType": "Part-time",
+    "salaryMin": 101000,
+    "salaryMax": 196000,
+    "currency": "AUD",
+    "description": "We're looking for a Senior Android Developer to build new features and maintain our Android app, ensuring smooth performance across a wide range of devices. Typically suited to candidates with 5+ years of relevant experience. Key skills: Git, Java, Kotlin, Android.",
+    "requiredSkills": [
+      "Git",
+      "Java",
+      "Kotlin",
+      "Android"
+    ],
+    "postedDate": "2026-07-19",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Part-time",
+    "experienceLevel": "Senior",
+    "responsibilities": [
+      "We're looking for a Senior Android Developer to build new features and maintain our Android app, ensuring smooth performance across a wide range of devices."
+    ],
+    "preferredSkills": [
+      "Stakeholder Management",
+      "Documentation"
+    ]
+  },
+  {
+    "id": "job_030",
+    "title": "Junior Mobile Developer (Android)",
+    "company": "Beacon Insurance",
+    "location": "Sydney, NSW",
+    "workMode": "Hybrid",
+    "jobType": "Full-time",
+    "salaryMin": 56000,
+    "salaryMax": 109000,
+    "currency": "AUD",
+    "description": "We're looking for a Junior Android Developer to build new features and maintain our Android app, ensuring smooth performance across a wide range of devices. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Kotlin, Android, REST APIs, Mobile UI Design, Git.",
+    "requiredSkills": [
+      "Kotlin",
+      "Android",
+      "REST APIs",
+      "Mobile UI Design",
+      "Git"
+    ],
+    "postedDate": "2026-07-18",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Entry-level",
+    "responsibilities": [
+      "We're looking for a Junior Android Developer to build new features and maintain our Android app, ensuring smooth performance across a wide range of devices."
+    ],
+    "preferredSkills": [
+      "Time Management",
+      "Teamwork"
+    ]
+  },
+  {
+    "id": "job_031",
+    "title": "Junior IT Support Specialist",
+    "company": "Ridgeline Systems",
+    "location": "Brisbane, QLD",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "salaryMin": 41000,
+    "salaryMax": 68000,
+    "currency": "AUD",
+    "description": "As a Junior IT Support Specialist you'll resolve hardware/software issues, manage user accounts, and keep internal systems running smoothly for staff across the business. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Customer Service, Active Directory, Networking, Ticketing Systems, Windows, Troubleshooting.",
+    "requiredSkills": [
+      "Customer Service",
+      "Active Directory",
+      "Networking",
+      "Ticketing Systems",
+      "Windows",
+      "Troubleshooting"
+    ],
+    "postedDate": "2026-07-17",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Entry-level",
+    "responsibilities": [
+      "As a Junior IT Support Specialist you'll resolve hardware/software issues, manage user accounts, and keep internal systems running smoothly for staff across the business."
+    ],
+    "preferredSkills": [
+      "Documentation",
+      "Time Management"
+    ]
+  },
+  {
+    "id": "job_032",
+    "title": "IT Support Specialist",
+    "company": "Nimbus Data",
+    "location": "Remote (Australia)",
+    "workMode": "Remote",
+    "jobType": "Contract",
+    "salaryMin": 55000,
+    "salaryMax": 90000,
+    "currency": "AUD",
+    "description": "As a IT Support Specialist you'll resolve hardware/software issues, manage user accounts, and keep internal systems running smoothly for staff across the business. Typically suited to candidates with 2-5 years of relevant experience. Key skills: Windows, Troubleshooting, Customer Service, Active Directory.",
+    "requiredSkills": [
+      "Windows",
+      "Troubleshooting",
+      "Customer Service",
+      "Active Directory"
+    ],
+    "postedDate": "2026-07-16",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Contract",
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "As a IT Support Specialist you'll resolve hardware/software issues, manage user accounts, and keep internal systems running smoothly for staff across the business."
+    ],
+    "preferredSkills": [
+      "Stakeholder Management",
+      "Documentation"
+    ]
+  },
+  {
+    "id": "job_033",
+    "title": "Business Analyst",
+    "company": "Meridian Retail",
+    "location": "Canberra, ACT",
+    "workMode": "Hybrid",
+    "jobType": "Full-time",
+    "salaryMin": 70000,
+    "salaryMax": 125000,
+    "currency": "AUD",
+    "description": "A Business Analyst role gathering requirements, mapping processes, and bridging the gap between business needs and technical delivery teams. Typically suited to candidates with 2-5 years of relevant experience. Key skills: Requirements Gathering, Process Mapping, Stakeholder Management, SQL, Excel.",
+    "requiredSkills": [
+      "Requirements Gathering",
+      "Process Mapping",
+      "Stakeholder Management",
+      "SQL",
+      "Excel"
+    ],
+    "postedDate": "2026-07-15",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "A Business Analyst role gathering requirements, mapping processes, and bridging the gap between business needs and technical delivery teams."
+    ],
+    "preferredSkills": [
+      "Attention to Detail",
+      "Stakeholder Management"
+    ]
+  },
+  {
+    "id": "job_034",
+    "title": "Senior Business Analyst",
+    "company": "Tidewater Energy",
+    "location": "Adelaide, SA",
+    "workMode": "On-site",
+    "jobType": "Part-time",
+    "salaryMin": 95000,
+    "salaryMax": 169000,
+    "currency": "AUD",
+    "description": "A Senior Business Analyst role gathering requirements, mapping processes, and bridging the gap between business needs and technical delivery teams. Typically suited to candidates with 5+ years of relevant experience. Key skills: Excel, Agile, Requirements Gathering, Process Mapping, Stakeholder Management, SQL.",
+    "requiredSkills": [
+      "Excel",
+      "Agile",
+      "Requirements Gathering",
+      "Process Mapping",
+      "Stakeholder Management",
+      "SQL"
+    ],
+    "postedDate": "2026-07-14",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Part-time",
+    "experienceLevel": "Senior",
+    "responsibilities": [
+      "A Senior Business Analyst role gathering requirements, mapping processes, and bridging the gap between business needs and technical delivery teams."
+    ],
+    "preferredSkills": [
+      "Analytical Thinking",
+      "Attention to Detail"
+    ]
+  },
+  {
+    "id": "job_035",
+    "title": "Senior Project Manager",
+    "company": "Silverline Bank",
+    "location": "Melbourne, VIC",
+    "workMode": "Hybrid",
+    "jobType": "Full-time",
+    "salaryMin": 115000,
+    "salaryMax": 203000,
+    "currency": "AUD",
+    "description": "We need a Senior Project Manager to plan and deliver projects on time and on budget, coordinating across engineering, design and business stakeholders. Typically suited to candidates with 5+ years of relevant experience. Key skills: Risk Management, Stakeholder Management, Budgeting, Jira.",
+    "requiredSkills": [
+      "Risk Management",
+      "Stakeholder Management",
+      "Budgeting",
+      "Jira"
+    ],
+    "postedDate": "2026-07-13",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Senior",
+    "responsibilities": [
+      "We need a Senior Project Manager to plan and deliver projects on time and on budget, coordinating across engineering, design and business stakeholders."
+    ],
+    "preferredSkills": [
+      "Communication",
+      "Analytical Thinking"
+    ]
+  },
+  {
+    "id": "job_036",
+    "title": "Junior Project Manager",
+    "company": "BluePeak Technologies",
+    "location": "Brisbane, QLD",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "salaryMin": 64000,
+    "salaryMax": 113000,
+    "currency": "AUD",
+    "description": "We need a Junior Project Manager to plan and deliver projects on time and on budget, coordinating across engineering, design and business stakeholders. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Jira, Agile, Scrum, Risk Management, Stakeholder Management.",
+    "requiredSkills": [
+      "Jira",
+      "Agile",
+      "Scrum",
+      "Risk Management",
+      "Stakeholder Management"
+    ],
+    "postedDate": "2026-07-12",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Entry-level",
+    "responsibilities": [
+      "We need a Junior Project Manager to plan and deliver projects on time and on budget, coordinating across engineering, design and business stakeholders."
+    ],
+    "preferredSkills": [
+      "Problem Solving",
+      "Communication"
+    ]
+  },
+  {
+    "id": "job_037",
+    "title": "Junior Digital Marketing Specialist",
+    "company": "Lighthouse Education",
+    "location": "Perth, WA",
+    "workMode": "On-site",
+    "jobType": "Contract",
+    "salaryMin": 45000,
+    "salaryMax": 83000,
+    "currency": "AUD",
+    "description": "As a Junior Digital Marketing Specialist you'll plan and run campaigns across search, social and email, and use analytics to continuously improve performance. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Social Media Marketing, Email Marketing, Google Analytics, SEO, SEM, Content Marketing.",
+    "requiredSkills": [
+      "Social Media Marketing",
+      "Email Marketing",
+      "Google Analytics",
+      "SEO",
+      "SEM",
+      "Content Marketing"
+    ],
+    "postedDate": "2026-07-11",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Contract",
+    "experienceLevel": "Entry-level",
+    "responsibilities": [
+      "As a Junior Digital Marketing Specialist you'll plan and run campaigns across search, social and email, and use analytics to continuously improve performance."
+    ],
+    "preferredSkills": [
+      "Teamwork",
+      "Problem Solving"
+    ]
+  },
+  {
+    "id": "job_038",
+    "title": "Digital Marketing Specialist",
+    "company": "Clearwater Software",
+    "location": "Canberra, ACT",
+    "workMode": "Hybrid",
+    "jobType": "Full-time",
+    "salaryMin": 60000,
+    "salaryMax": 110000,
+    "currency": "AUD",
+    "description": "As a Digital Marketing Specialist you'll plan and run campaigns across search, social and email, and use analytics to continuously improve performance. Typically suited to candidates with 2-5 years of relevant experience. Key skills: Google Analytics, SEO, SEM, Content Marketing.",
+    "requiredSkills": [
+      "Google Analytics",
+      "SEO",
+      "SEM",
+      "Content Marketing"
+    ],
+    "postedDate": "2026-07-10",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "As a Digital Marketing Specialist you'll plan and run campaigns across search, social and email, and use analytics to continuously improve performance."
+    ],
+    "preferredSkills": [
+      "Time Management",
+      "Teamwork"
+    ]
+  },
+  {
+    "id": "job_039",
+    "title": "Content Writer",
+    "company": "Willow Creek Agency",
+    "location": "Sydney, NSW",
+    "workMode": "Hybrid",
+    "jobType": "Part-time",
+    "salaryMin": 55000,
+    "salaryMax": 95000,
+    "currency": "AUD",
+    "description": "A Content Writer role producing engaging blog posts, web copy and marketing collateral aligned with our brand voice and SEO strategy. Typically suited to candidates with 2-5 years of relevant experience. Key skills: Editing, Content Strategy, WordPress, SEO, Copywriting.",
+    "requiredSkills": [
+      "Editing",
+      "Content Strategy",
+      "WordPress",
+      "SEO",
+      "Copywriting"
+    ],
+    "postedDate": "2026-07-09",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Part-time",
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "A Content Writer role producing engaging blog posts, web copy and marketing collateral aligned with our brand voice and SEO strategy."
+    ],
+    "preferredSkills": [
+      "Documentation",
+      "Time Management"
+    ]
+  },
+  {
+    "id": "job_040",
+    "title": "Senior Content Writer",
+    "company": "Cobalt Cloud",
+    "location": "Melbourne, VIC",
+    "workMode": "Hybrid",
+    "jobType": "Full-time",
+    "salaryMin": 74000,
+    "salaryMax": 128000,
+    "currency": "AUD",
+    "description": "A Senior Content Writer role producing engaging blog posts, web copy and marketing collateral aligned with our brand voice and SEO strategy. Typically suited to candidates with 5+ years of relevant experience. Key skills: Content Strategy, WordPress, SEO, Copywriting, Editing.",
+    "requiredSkills": [
+      "Content Strategy",
+      "WordPress",
+      "SEO",
+      "Copywriting",
+      "Editing"
+    ],
+    "postedDate": "2026-07-08",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Senior",
+    "responsibilities": [
+      "A Senior Content Writer role producing engaging blog posts, web copy and marketing collateral aligned with our brand voice and SEO strategy."
+    ],
+    "preferredSkills": [
+      "Teamwork",
+      "Problem Solving"
+    ]
+  },
+  {
+    "id": "job_041",
+    "title": "Senior Graphic Designer",
+    "company": "Northwind Digital",
+    "location": "Remote (Australia)",
+    "workMode": "Remote",
+    "jobType": "Full-time",
+    "salaryMin": 74000,
+    "salaryMax": 135000,
+    "currency": "AUD",
+    "description": "We're hiring a Senior Graphic Designer to create visual assets across digital and print — from social media graphics to brand campaigns. Typically suited to candidates with 5+ years of relevant experience. Key skills: Figma, Adobe Photoshop, Branding, Adobe Illustrator.",
+    "requiredSkills": [
+      "Figma",
+      "Adobe Photoshop",
+      "Branding",
+      "Adobe Illustrator"
+    ],
+    "postedDate": "2026-08-06",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Senior",
+    "responsibilities": [
+      "We're hiring a Senior Graphic Designer to create visual assets across digital and print — from social media graphics to brand campaigns."
+    ],
+    "preferredSkills": [
+      "Time Management",
+      "Teamwork"
+    ]
+  },
+  {
+    "id": "job_042",
+    "title": "Junior Graphic Designer",
+    "company": "Orchard Robotics",
+    "location": "Perth, WA",
+    "workMode": "On-site",
+    "jobType": "Contract",
+    "salaryMin": 41000,
+    "salaryMax": 75000,
+    "currency": "AUD",
+    "description": "We're hiring a Junior Graphic Designer to create visual assets across digital and print — from social media graphics to brand campaigns. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Adobe Photoshop, Branding, Adobe Illustrator, Typography, Figma.",
+    "requiredSkills": [
+      "Adobe Photoshop",
+      "Branding",
+      "Adobe Illustrator",
+      "Typography",
+      "Figma"
+    ],
+    "postedDate": "2026-08-05",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Contract",
+    "experienceLevel": "Entry-level",
+    "responsibilities": [
+      "We're hiring a Junior Graphic Designer to create visual assets across digital and print — from social media graphics to brand campaigns."
+    ],
+    "preferredSkills": [
+      "Documentation",
+      "Time Management"
+    ]
+  },
+  {
+    "id": "job_043",
+    "title": "Junior Sales Executive",
+    "company": "Harbor & Co",
+    "location": "Adelaide, SA",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "salaryMin": 49000,
+    "salaryMax": 98000,
+    "currency": "AUD",
+    "description": "As a Junior Sales Executive you'll build a pipeline of qualified leads, run the full sales cycle, and consistently hit revenue targets in a fast-growing market. Typically suited to candidates with 0-2 years of relevant experience. Key skills: CRM, Salesforce, Negotiation, Account Management, Lead Generation, B2B Sales.",
+    "requiredSkills": [
+      "CRM",
+      "Salesforce",
+      "Negotiation",
+      "Account Management",
+      "Lead Generation",
+      "B2B Sales"
+    ],
+    "postedDate": "2026-08-04",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Entry-level",
+    "responsibilities": [
+      "As a Junior Sales Executive you'll build a pipeline of qualified leads, run the full sales cycle, and consistently hit revenue targets in a fast-growing market."
+    ],
+    "preferredSkills": [
+      "Stakeholder Management",
+      "Documentation"
+    ]
+  },
+  {
+    "id": "job_044",
+    "title": "Sales Executive",
+    "company": "Palisade Games",
+    "location": "Sydney, NSW",
+    "workMode": "Hybrid",
+    "jobType": "Part-time",
+    "salaryMin": 65000,
+    "salaryMax": 130000,
+    "currency": "AUD",
+    "description": "As a Sales Executive you'll build a pipeline of qualified leads, run the full sales cycle, and consistently hit revenue targets in a fast-growing market. Typically suited to candidates with 2-5 years of relevant experience. Key skills: Lead Generation, B2B Sales, CRM, Salesforce.",
+    "requiredSkills": [
+      "Lead Generation",
+      "B2B Sales",
+      "CRM",
+      "Salesforce"
+    ],
+    "postedDate": "2026-08-03",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Part-time",
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "As a Sales Executive you'll build a pipeline of qualified leads, run the full sales cycle, and consistently hit revenue targets in a fast-growing market."
+    ],
+    "preferredSkills": [
+      "Attention to Detail",
+      "Stakeholder Management"
+    ]
+  },
+  {
+    "id": "job_045",
+    "title": "Customer Support Specialist",
+    "company": "Sunrise Health Group",
+    "location": "Brisbane, QLD",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "salaryMin": 55000,
+    "salaryMax": 85000,
+    "currency": "AUD",
+    "description": "A Customer Support Specialist role helping customers resolve issues quickly and empathetically across chat, email and phone channels. Typically suited to candidates with 2-5 years of relevant experience. Key skills: Customer Service, CRM, Communication, Zendesk, Troubleshooting.",
+    "requiredSkills": [
+      "Customer Service",
+      "CRM",
+      "Communication",
+      "Zendesk",
+      "Troubleshooting"
+    ],
+    "postedDate": "2026-08-02",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "A Customer Support Specialist role helping customers resolve issues quickly and empathetically across chat, email and phone channels."
+    ],
+    "preferredSkills": [
+      "Analytical Thinking",
+      "Attention to Detail"
+    ]
+  },
+  {
+    "id": "job_046",
+    "title": "Senior Customer Support Specialist",
+    "company": "Granite Peak Mining",
+    "location": "Remote (Australia)",
+    "workMode": "Remote",
+    "jobType": "Full-time",
+    "salaryMin": 74000,
+    "salaryMax": 115000,
+    "currency": "AUD",
+    "description": "A Senior Customer Support Specialist role helping customers resolve issues quickly and empathetically across chat, email and phone channels. Typically suited to candidates with 5+ years of relevant experience. Key skills: Communication, Zendesk, Troubleshooting, Customer Service, CRM.",
+    "requiredSkills": [
+      "Communication",
+      "Zendesk",
+      "Troubleshooting",
+      "Customer Service",
+      "CRM"
+    ],
+    "postedDate": "2026-08-01",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Senior",
+    "responsibilities": [
+      "A Senior Customer Support Specialist role helping customers resolve issues quickly and empathetically across chat, email and phone channels."
+    ],
+    "preferredSkills": [
+      "Communication",
+      "Analytical Thinking"
+    ]
+  },
+  {
+    "id": "job_047",
+    "title": "Senior HR Coordinator",
+    "company": "Anchorpoint Logistics",
+    "location": "Canberra, ACT",
+    "workMode": "Hybrid",
+    "jobType": "Contract",
+    "salaryMin": 81000,
+    "salaryMax": 135000,
+    "currency": "AUD",
+    "description": "We need a Senior HR Coordinator to support recruitment, onboarding and day-to-day people operations as our team grows. Typically suited to candidates with 5+ years of relevant experience. Key skills: Onboarding, Compliance, Recruitment, HRIS.",
+    "requiredSkills": [
+      "Onboarding",
+      "Compliance",
+      "Recruitment",
+      "HRIS"
+    ],
+    "postedDate": "2026-07-31",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Contract",
+    "experienceLevel": "Senior",
+    "responsibilities": [
+      "We need a Senior HR Coordinator to support recruitment, onboarding and day-to-day people operations as our team grows."
+    ],
+    "preferredSkills": [
+      "Problem Solving",
+      "Communication"
+    ]
+  },
+  {
+    "id": "job_048",
+    "title": "Junior HR Coordinator",
+    "company": "Solstice Labs",
+    "location": "Adelaide, SA",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "salaryMin": 45000,
+    "salaryMax": 75000,
+    "currency": "AUD",
+    "description": "We need a Junior HR Coordinator to support recruitment, onboarding and day-to-day people operations as our team grows. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Recruitment, HRIS, Employee Relations, Onboarding, Compliance.",
+    "requiredSkills": [
+      "Recruitment",
+      "HRIS",
+      "Employee Relations",
+      "Onboarding",
+      "Compliance"
+    ],
+    "postedDate": "2026-07-30",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Entry-level",
+    "responsibilities": [
+      "We need a Junior HR Coordinator to support recruitment, onboarding and day-to-day people operations as our team grows."
+    ],
+    "preferredSkills": [
+      "Teamwork",
+      "Problem Solving"
+    ]
+  },
+  {
+    "id": "job_049",
+    "title": "Junior Financial Analyst",
+    "company": "Crestview Consulting",
+    "location": "Melbourne, VIC",
+    "workMode": "Hybrid",
+    "jobType": "Part-time",
+    "salaryMin": 53000,
+    "salaryMax": 98000,
+    "currency": "AUD",
+    "description": "As a Junior Financial Analyst you'll build financial models, support budgeting and forecasting, and provide insight to leadership on business performance. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Budgeting, SQL, Accounting, Forecasting, Financial Modelling, Excel.",
+    "requiredSkills": [
+      "Budgeting",
+      "SQL",
+      "Accounting",
+      "Forecasting",
+      "Financial Modelling",
+      "Excel"
+    ],
+    "postedDate": "2026-07-29",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Part-time",
+    "experienceLevel": "Entry-level",
+    "responsibilities": [
+      "As a Junior Financial Analyst you'll build financial models, support budgeting and forecasting, and provide insight to leadership on business performance."
+    ],
+    "preferredSkills": [
+      "Time Management",
+      "Teamwork"
+    ]
+  },
+  {
+    "id": "job_050",
+    "title": "Financial Analyst",
+    "company": "Ridgeline Systems",
+    "location": "Brisbane, QLD",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "salaryMin": 70000,
+    "salaryMax": 130000,
+    "currency": "AUD",
+    "description": "As a Financial Analyst you'll build financial models, support budgeting and forecasting, and provide insight to leadership on business performance. Typically suited to candidates with 2-5 years of relevant experience. Key skills: SQL, Accounting, Forecasting, Financial Modelling.",
+    "requiredSkills": [
+      "SQL",
+      "Accounting",
+      "Forecasting",
+      "Financial Modelling"
+    ],
+    "postedDate": "2026-07-28",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "As a Financial Analyst you'll build financial models, support budgeting and forecasting, and provide insight to leadership on business performance."
+    ],
+    "preferredSkills": [
+      "Problem Solving",
+      "Communication"
+    ]
+  },
+  {
+    "id": "job_051",
+    "title": "Network Engineer",
+    "company": "Stonebridge Manufacturing",
+    "location": "Perth, WA",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "salaryMin": 75000,
+    "salaryMax": 135000,
+    "currency": "AUD",
+    "description": "A Network Engineer role designing, implementing and maintaining secure, reliable network infrastructure across our offices and data centres. Typically suited to candidates with 2-5 years of relevant experience. Key skills: Troubleshooting, Security, Firewalls, Networking, VPN.",
+    "requiredSkills": [
+      "Troubleshooting",
+      "Security",
+      "Firewalls",
+      "Networking",
+      "VPN"
+    ],
+    "postedDate": "2026-07-27",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Full-time",
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "A Network Engineer role designing, implementing and maintaining secure, reliable network infrastructure across our offices and data centres."
+    ],
+    "preferredSkills": [
+      "Teamwork",
+      "Problem Solving"
+    ]
+  },
+  {
+    "id": "job_052",
+    "title": "Senior Network Engineer",
+    "company": "Meridian Retail",
+    "location": "Canberra, ACT",
+    "workMode": "Hybrid",
+    "jobType": "Contract",
+    "salaryMin": 101000,
+    "salaryMax": 182000,
+    "currency": "AUD",
+    "description": "A Senior Network Engineer role designing, implementing and maintaining secure, reliable network infrastructure across our offices and data centres. Typically suited to candidates with 5+ years of relevant experience. Key skills: Firewalls, Networking, VPN, Cisco, Troubleshooting, Security.",
+    "requiredSkills": [
+      "Firewalls",
+      "Networking",
+      "VPN",
+      "Cisco",
+      "Troubleshooting",
+      "Security"
+    ],
+    "postedDate": "2026-07-26",
+    "source": "seed",
+    "applyUrl": null,
+    "type": "Contract",
+    "experienceLevel": "Senior",
+    "responsibilities": [
+      "A Senior Network Engineer role designing, implementing and maintaining secure, reliable network infrastructure across our offices and data centres."
+    ],
+    "preferredSkills": [
+      "Time Management",
+      "Teamwork"
+    ]
+  },
+  {
+    "id": "job_053",
+    "title": "Cyber Security Analyst",
+    "company": "Ironclad Financial",
+    "location": "Sydney, NSW",
+    "workMode": "Hybrid",
+    "jobType": "Full-time",
+    "type": "Full-time",
+    "salaryMin": 85000,
+    "salaryMax": 130000,
+    "currency": "AUD",
+    "description": "We're looking for a Cyber Security Analyst to monitor security systems, investigate alerts, and help harden our infrastructure against threats. You'll work with the wider IT team on vulnerability management, security awareness and incident response. Typically suited to candidates with 2-5 years of relevant experience. Key skills: SIEM, Incident Response, Network Security, Risk Assessment, Vulnerability Management, Firewalls.",
+    "requiredSkills": [
+      "SIEM",
+      "Incident Response",
+      "Network Security",
+      "Risk Assessment",
+      "Vulnerability Management",
+      "Firewalls"
+    ],
+    "postedDate": "2026-07-20",
+    "source": "seed",
+    "applyUrl": null,
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "You'll work with the wider IT team on vulnerability management, security awareness and incident response."
+    ],
+    "preferredSkills": [
+      "Documentation",
+      "Time Management"
+    ]
+  },
+  {
+    "id": "job_054",
+    "title": "SOC Analyst (Level 1)",
+    "company": "Vigil Cyber Defence",
+    "location": "Melbourne, VIC",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "type": "Full-time",
+    "salaryMin": 70000,
+    "salaryMax": 100000,
+    "currency": "AUD",
+    "description": "Join our Security Operations Centre monitoring alerts around the clock, triaging incidents, and escalating confirmed threats to senior analysts. Great entry point into cyber security with structured training. Typically suited to candidates with 0-2 years of relevant experience. Key skills: SIEM, Log Analysis, Incident Response, Network Security, Ticketing Systems.",
+    "requiredSkills": [
+      "SIEM",
+      "Log Analysis",
+      "Incident Response",
+      "Network Security",
+      "Ticketing Systems"
+    ],
+    "postedDate": "2026-07-19",
+    "source": "seed",
+    "applyUrl": null,
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "Join our Security Operations Centre monitoring alerts around the clock, triaging incidents, and escalating confirmed threats to senior analysts.",
+      "Great entry point into cyber security with structured training."
+    ],
+    "preferredSkills": [
+      "Stakeholder Management",
+      "Documentation"
+    ]
+  },
+  {
+    "id": "job_055",
+    "title": "IT Support Officer (Help Desk)",
+    "company": "Coastal Health Network",
+    "location": "Gold Coast, QLD",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "type": "Full-time",
+    "salaryMin": 55000,
+    "salaryMax": 75000,
+    "currency": "AUD",
+    "description": "First point of contact for IT issues across the organisation. You'll log and resolve help desk tickets, support hardware/software setup, and escalate complex issues to Level 2. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Help Desk, Windows, Active Directory, Customer Service, Ticketing Systems, Troubleshooting.",
+    "requiredSkills": [
+      "Help Desk",
+      "Windows",
+      "Active Directory",
+      "Customer Service",
+      "Ticketing Systems",
+      "Troubleshooting"
+    ],
+    "postedDate": "2026-07-18",
+    "source": "seed",
+    "applyUrl": null,
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "First point of contact for IT issues across the organisation.",
+      "You'll log and resolve help desk tickets, support hardware/software setup, and escalate complex issues to Level 2."
+    ],
+    "preferredSkills": [
+      "Attention to Detail",
+      "Stakeholder Management"
+    ]
+  },
+  {
+    "id": "job_056",
+    "title": "Help Desk Support Technician",
+    "company": "Northern Logistics Group",
+    "location": "Perth, WA",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "type": "Full-time",
+    "salaryMin": 52000,
+    "salaryMax": 68000,
+    "currency": "AUD",
+    "description": "Provide phone and remote support to staff across our warehouse and office locations, resolving hardware, software and network access issues. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Help Desk, Windows, Remote Support, Customer Service, Hardware Troubleshooting.",
+    "requiredSkills": [
+      "Help Desk",
+      "Windows",
+      "Remote Support",
+      "Customer Service",
+      "Hardware Troubleshooting"
+    ],
+    "postedDate": "2026-07-14",
+    "source": "seed",
+    "applyUrl": null,
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "Provide phone and remote support to staff across our warehouse and office locations, resolving hardware, software and network access issues."
+    ],
+    "preferredSkills": [
+      "Analytical Thinking",
+      "Attention to Detail"
+    ]
+  },
+  {
+    "id": "job_057",
+    "title": "Systems Administrator",
+    "company": "Redgum Financial Services",
+    "location": "Adelaide, SA",
+    "workMode": "Hybrid",
+    "jobType": "Full-time",
+    "type": "Full-time",
+    "salaryMin": 80000,
+    "salaryMax": 115000,
+    "currency": "AUD",
+    "description": "Manage and maintain our Windows/Linux server environment, user accounts, backups and patching schedule. You'll be the escalation point for infrastructure issues and help plan capacity upgrades. Typically suited to candidates with 2-5 years of relevant experience. Key skills: Windows Server, Linux, Active Directory, Backup & Recovery, Patch Management, Virtualization.",
+    "requiredSkills": [
+      "Windows Server",
+      "Linux",
+      "Active Directory",
+      "Backup & Recovery",
+      "Patch Management",
+      "Virtualization"
+    ],
+    "postedDate": "2026-07-21",
+    "source": "seed",
+    "applyUrl": null,
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "Manage and maintain our Windows/Linux server environment, user accounts, backups and patching schedule.",
+      "You'll be the escalation point for infrastructure issues and help plan capacity upgrades."
+    ],
+    "preferredSkills": [
+      "Communication",
+      "Analytical Thinking"
+    ]
+  },
+  {
+    "id": "job_058",
+    "title": "Junior Systems Administrator",
+    "company": "Redgum Financial Services",
+    "location": "Adelaide, SA",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "type": "Full-time",
+    "salaryMin": 58000,
+    "salaryMax": 78000,
+    "currency": "AUD",
+    "description": "Support the senior systems team with day-to-day server maintenance, account provisioning and monitoring. A great next step after a help desk role. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Windows Server, Active Directory, Backup & Recovery, Troubleshooting, Monitoring.",
+    "requiredSkills": [
+      "Windows Server",
+      "Active Directory",
+      "Backup & Recovery",
+      "Troubleshooting",
+      "Monitoring"
+    ],
+    "postedDate": "2026-07-13",
+    "source": "seed",
+    "applyUrl": null,
+    "experienceLevel": "Entry-level",
+    "responsibilities": [
+      "Support the senior systems team with day-to-day server maintenance, account provisioning and monitoring.",
+      "A great next step after a help desk role."
+    ],
+    "preferredSkills": [
+      "Problem Solving",
+      "Communication"
+    ]
+  },
+  {
+    "id": "job_059",
+    "title": "Network Administrator",
+    "company": "Southern Ports Authority",
+    "location": "Brisbane, QLD",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "type": "Full-time",
+    "salaryMin": 82000,
+    "salaryMax": 118000,
+    "currency": "AUD",
+    "description": "Administer our routing, switching and firewall infrastructure across multiple sites, monitor network performance, and lead troubleshooting for connectivity incidents. Typically suited to candidates with 2-5 years of relevant experience. Key skills: Cisco, Routing & Switching, Firewalls, Network Security, VPN, Network Monitoring.",
+    "requiredSkills": [
+      "Cisco",
+      "Routing & Switching",
+      "Firewalls",
+      "Network Security",
+      "VPN",
+      "Network Monitoring"
+    ],
+    "postedDate": "2026-07-15",
+    "source": "seed",
+    "applyUrl": null,
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "Administer our routing, switching and firewall infrastructure across multiple sites, monitor network performance, and lead troubleshooting for connectivity incidents."
+    ],
+    "preferredSkills": [
+      "Teamwork",
+      "Problem Solving"
+    ]
+  },
+  {
+    "id": "job_060",
+    "title": "ICT Systems Test Engineer",
+    "company": "Aurora Rail Systems",
+    "location": "Melbourne, VIC",
+    "workMode": "Hybrid",
+    "jobType": "Contract",
+    "type": "Contract",
+    "salaryMin": 90000,
+    "salaryMax": 125000,
+    "currency": "AUD",
+    "description": "Design and execute test plans for mission-critical ICT systems, log defects, and verify fixes against requirements before release. Close collaboration with engineering and QA teams. Typically suited to candidates with 2-5 years of relevant experience. Key skills: Test Planning, Test Automation, Defect Tracking, Requirements Traceability, SQL, Regression Testing.",
+    "requiredSkills": [
+      "Test Planning",
+      "Test Automation",
+      "Defect Tracking",
+      "Requirements Traceability",
+      "SQL",
+      "Regression Testing"
+    ],
+    "postedDate": "2026-07-22",
+    "source": "seed",
+    "applyUrl": null,
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "Design and execute test plans for mission-critical ICT systems, log defects, and verify fixes against requirements before release.",
+      "Close collaboration with engineering and QA teams."
+    ],
+    "preferredSkills": [
+      "Communication",
+      "Analytical Thinking"
+    ]
+  },
+  {
+    "id": "job_061",
+    "title": "Graduate Software Developer",
+    "company": "Harbour Digital",
+    "location": "Sydney, NSW",
+    "workMode": "Hybrid",
+    "jobType": "Full-time",
+    "type": "Full-time",
+    "salaryMin": 60000,
+    "salaryMax": 78000,
+    "currency": "AUD",
+    "description": "A structured graduate program for early-career developers, rotating across frontend, backend and QA teams with mentoring throughout. Typically suited to candidates with 0-1 years of relevant experience. Key skills: JavaScript, Git, SQL, HTML, CSS, Problem Solving.",
+    "requiredSkills": [
+      "JavaScript",
+      "Git",
+      "SQL",
+      "HTML",
+      "CSS"
+    ],
+    "postedDate": "2026-07-24",
+    "source": "seed",
+    "applyUrl": null,
+    "experienceLevel": "Entry-level",
+    "responsibilities": [
+      "A structured graduate program for early-career developers, rotating across frontend, backend and QA teams with mentoring throughout."
+    ],
+    "preferredSkills": [
+      "Problem Solving",
+      "Communication"
+    ]
+  },
+  {
+    "id": "job_062",
+    "title": "Graduate IT Support Analyst",
+    "company": "Coastal Health Network",
+    "location": "Gold Coast, QLD",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "type": "Full-time",
+    "salaryMin": 54000,
+    "salaryMax": 65000,
+    "currency": "AUD",
+    "description": "Kick-start your IT career supporting end users, learning ITIL-aligned service desk processes, and rotating through infrastructure and security teams. Typically suited to candidates with 0-1 years of relevant experience. Key skills: Help Desk, Windows, Customer Service, Ticketing Systems, Troubleshooting.",
+    "requiredSkills": [
+      "Help Desk",
+      "Windows",
+      "Customer Service",
+      "Ticketing Systems",
+      "Troubleshooting"
+    ],
+    "postedDate": "2026-07-12",
+    "source": "seed",
+    "applyUrl": null,
+    "experienceLevel": "Entry-level",
+    "responsibilities": [
+      "Kick-start your IT career supporting end users, learning ITIL-aligned service desk processes, and rotating through infrastructure and security teams."
+    ],
+    "preferredSkills": [
+      "Teamwork",
+      "Problem Solving"
+    ]
+  },
+  {
+    "id": "job_063",
+    "title": "Cloud Support Engineer",
+    "company": "NimbusStack Cloud",
+    "location": "Remote",
+    "workMode": "Remote",
+    "jobType": "Full-time",
+    "type": "Full-time",
+    "salaryMin": 78000,
+    "salaryMax": 112000,
+    "currency": "AUD",
+    "description": "Provide technical support to customers running workloads on our cloud platform, troubleshoot deployment issues, and escalate platform bugs to engineering. Typically suited to candidates with 2-5 years of relevant experience. Key skills: AWS, Azure, Linux, Networking, Docker, Troubleshooting.",
+    "requiredSkills": [
+      "AWS",
+      "Azure",
+      "Linux",
+      "Networking",
+      "Docker",
+      "Troubleshooting"
+    ],
+    "postedDate": "2026-07-11",
+    "source": "seed",
+    "applyUrl": null,
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "Provide technical support to customers running workloads on our cloud platform, troubleshoot deployment issues, and escalate platform bugs to engineering."
+    ],
+    "preferredSkills": [
+      "Time Management",
+      "Teamwork"
+    ]
+  },
+  {
+    "id": "job_064",
+    "title": "Junior QA / Software Tester",
+    "company": "Foxglove Biotech",
+    "location": "Brisbane, QLD",
+    "workMode": "Hybrid",
+    "jobType": "Full-time",
+    "type": "Full-time",
+    "salaryMin": 58000,
+    "salaryMax": 80000,
+    "currency": "AUD",
+    "description": "Write and execute manual test cases, log defects, and help build out our automated regression suite under the guidance of senior QA engineers. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Manual Testing, Test Case Design, Defect Tracking, SQL, Regression Testing.",
+    "requiredSkills": [
+      "Manual Testing",
+      "Test Case Design",
+      "Defect Tracking",
+      "SQL",
+      "Regression Testing"
+    ],
+    "postedDate": "2026-07-10",
+    "source": "seed",
+    "applyUrl": null,
+    "experienceLevel": "Entry-level",
+    "responsibilities": [
+      "Write and execute manual test cases, log defects, and help build out our automated regression suite under the guidance of senior QA engineers."
+    ],
+    "preferredSkills": [
+      "Documentation",
+      "Time Management"
+    ]
+  }
+]

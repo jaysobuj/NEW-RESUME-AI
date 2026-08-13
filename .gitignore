@@ -1,0 +1,8 @@
+node_modules/
+.env
+backend/database/db.json
+backend/database/db.json.tmp
+backend/database/*.corrupt-*
+frontend/build/
+npm-debug.log*
+.DS_Store
