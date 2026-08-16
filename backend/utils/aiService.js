@@ -139,7 +139,7 @@ async function tailorResume(resume, jobDescription) {
   if (GEMINI_KEY) {
     try {
       const bulletList = flat.map((b, i) => `[${i}] (${b.expTitle}): ${b.text}`).join('\n');
-      const prompt = `You are a truth-constrained resume tailoring assistant. Rewrite the professional summary AND select up to 8 of the EXISTING bullet points below that are most relevant to this job, sharpening their wording, ATS keyword alignment and action-verb strength. Do NOT invent skills, numbers, employers, technologies or achievements not already present in the bullet you are rewriting. Respond ONLY in this exact JSON format with no other text:\n{"tailoredSummary": "...", "keywordsToAdd": ["..."], "reasoning": "...", "tailoredBullets": [{"index": <bullet index from the list below>, "text": "rewritten bullet"}]}\n\nResume summary: ${resume.summary || ''}\nResume skills: ${safeParseNames(resume.skills).join(', ')}\nJob description: ${jobDescription}\n\nExisting bullets (index: text):\n${bulletList || '(none)'}`;
+      const prompt = `You are a truth-constrained resume tailoring assistant. Rewrite the professional summary AND select up to 8 of the EXISTING bullet points below that are most relevant to this job, sharpening their wording, ATS keyword alignment and action-verb strength.\n\nRULES:\n1. Do NOT invent skills, numbers, employers, technologies or achievements not already present in the bullet or resume you are rewriting.\n2. Terminology matching (allowed, not fabrication): if the resume already demonstrates a skill/tool/technology that the job description names with different wording (a synonym, abbreviation, or slightly different phrase for the SAME true thing — e.g. resume says "RESTful services" and the job says "REST APIs"), prefer the job description's exact term. This is precise language for something already true, not a new claim. Never do this for a skill/tool/technology that is not genuinely evidenced in the resume.\n\nRespond ONLY in this exact JSON format with no other text:\n{"tailoredSummary": "...", "keywordsToAdd": ["..."], "reasoning": "...", "tailoredBullets": [{"index": <bullet index from the list below>, "text": "rewritten bullet"}]}\n\nResume summary: ${resume.summary || ''}\nResume skills: ${safeParseNames(resume.skills).join(', ')}\nJob description: ${jobDescription}\n\nExisting bullets (index: text):\n${bulletList || '(none)'}`;
       // Gemini 3.x uses part of the output budget for reasoning, and this
       // response now also carries up to 8 rewritten bullets — give it room.
       const text = await callGemini(prompt, 3200);
@@ -148,16 +148,23 @@ async function tailorResume(resume, jobDescription) {
 
       const truthFlags = [...check.flags];
       const tailoredBullets = [];
+      let skippedBullets = 0;
       (parsed.tailoredBullets || []).forEach(tb => {
         const src = flat[tb.index];
         if (!src || !tb.text) return;
-        const bCheck = checkBulletRewrite(tb.text, src.text);
+        const bCheck = checkBulletRewrite(tb.text, src.text, groundTruth);
         if (bCheck.isSafe && bCheck.cleanedText !== src.text) {
           tailoredBullets.push({ expIndex: src.expIndex, bulletIndex: src.bulletIndex, original: src.text, text: bCheck.cleanedText });
         } else if (!bCheck.isSafe) {
-          truthFlags.push(...bCheck.flags);
+          skippedBullets++;
         }
       });
+      // One summary line instead of one near-duplicate paragraph per
+      // flagged bullet — the per-bullet detail isn't actionable anyway
+      // since the bullet was simply skipped, not applied.
+      if (skippedBullets > 0) {
+        truthFlags.push(`Skipped ${skippedBullets} bullet rewrite${skippedBullets > 1 ? 's' : ''} that introduced claims not backed by your resume.`);
+      }
 
       return {
         tailoredSummary: check.cleanedText, keywordsToAdd: parsed.keywordsToAdd || [], reasoning: parsed.reasoning || '',
@@ -214,6 +221,7 @@ async function chatRefine({ resume, job, currentSummary, message, history = [] }
 RULES:
 - Do NOT invent any skills, employers, titles, qualifications, certifications, technologies, metrics or achievements not already present in the candidate's resume facts below.
 - Only rephrase, reorder or trim existing true information.
+- Terminology matching (allowed, not fabrication): if the resume already demonstrates something the job description names with different wording (a synonym, abbreviation, or slightly different phrase for the SAME true thing), prefer the job description's exact term — precise language for something already true is not a new claim. Never do this for anything not genuinely evidenced in the resume.
 - Respond ONLY in this exact JSON shape, no other text: {"reply": "short conversational reply (1-3 sentences)", "proposedSummary": "revised summary text, or null if the user isn't asking about the summary", "proposedBulletText": "revised bullet text, or null if the user isn't asking about a bullet"}
 
 Candidate resume facts: ${[resume.summary, groundTruth.words.size ? [...groundTruth.words].join(', ') : ''].filter(Boolean).join(' | ')}
@@ -240,7 +248,7 @@ User message: ${message}`;
       }
       let proposedBullet = null, bulletFlags = [];
       if (parsed.proposedBulletText && targetBullet) {
-        const check = checkBulletRewrite(parsed.proposedBulletText, targetBullet.text);
+        const check = checkBulletRewrite(parsed.proposedBulletText, targetBullet.text, groundTruth);
         proposedBullet = check.isSafe ? { ...targetBullet, text: check.cleanedText } : null;
         bulletFlags = check.flags;
       }

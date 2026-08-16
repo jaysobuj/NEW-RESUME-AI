@@ -37,6 +37,7 @@ export default function ATSScan() {
   const [loading, setLoading]     = useState(false);
   const [error, setError]         = useState('');
   const [autoRan, setAutoRan]     = useState(false);
+  const [addingSkill, setAddingSkill] = useState('');
 
   useEffect(() => {
     Promise.all([api.get('/resumes'), api.get('/workflow')]).then(([resumesRes, workflowRes]) => {
@@ -88,6 +89,26 @@ export default function ATSScan() {
   };
 
   const previousBest = history.length > 1 ? Math.max(...history.slice(1).map(s => s.overall_score)) : null;
+
+  // Self-certified skill addition: the AI never adds skills on its own —
+  // this only fires from the user's own click, confirming they genuinely
+  // have it. Re-runs the scan immediately so the score reflects it.
+  const addSkillAndRescan = async (keyword) => {
+    setAddingSkill(keyword);
+    setError('');
+    try {
+      const res = await api.get(`/resumes/${resumeId}`);
+      const current = safeParse(res.data.resume.skills).map(s => (typeof s === 'string' ? s : s.name || ''));
+      if (!current.some(s => s.toLowerCase() === keyword.toLowerCase())) {
+        await api.put(`/resumes/${resumeId}`, { skills: [...current, keyword] });
+      }
+      await runScan();
+    } catch (err) {
+      setError('Could not add that skill. Please try again.');
+    } finally {
+      setAddingSkill('');
+    }
+  };
 
   const improveWithTailoring = () => {
     navigate('/ai-tailoring', {
@@ -207,11 +228,20 @@ export default function ATSScan() {
                   ))}
               </div>
               <h4 style={{ fontSize: 15, fontWeight: 700, margin: '16px 0 10px' }}>❌ Missing</h4>
+              {result.missingKeywords.length > 0 && (
+                <p style={{ fontSize: 11.5, color: 'var(--text-muted)', margin: '0 0 6px' }}>
+                  Only click "+" if you genuinely have it — this adds it to your resume's Skills section and re-scans.
+                </p>
+              )}
               <div className="tag-list">
                 {result.missingKeywords.length === 0
                   ? <span style={{ color: '#94a3b8', fontSize: 13 }}>None — great match! 🎉</span>
                   : result.missingKeywords.map(k => (
-                    <span key={k} className="tag" style={{ background: '#fef2f2', color: '#b91c1c', borderColor: '#fecaca' }}>{k}</span>
+                    <button key={k} className="tag" disabled={!!addingSkill}
+                      style={{ cursor: 'pointer', background: '#fef2f2', color: '#b91c1c', borderColor: '#fecaca' }}
+                      onClick={() => addSkillAndRescan(k)}>
+                      {addingSkill === k ? '⏳...' : `+ ${k}`}
+                    </button>
                   ))}
               </div>
               <h4 style={{ fontSize: 15, fontWeight: 700, margin: '16px 0 10px' }}>💡 Suggestions</h4>
@@ -229,4 +259,8 @@ export default function ATSScan() {
       </div>
     </Layout>
   );
+}
+
+function safeParse(field) {
+  try { return typeof field === 'string' ? JSON.parse(field) : (field || []); } catch { return []; }
 }

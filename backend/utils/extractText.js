@@ -15,6 +15,39 @@ const mammoth  = require('mammoth');
 const pdfParse = require('pdf-parse');
 const { validateUpload } = require('./fileValidation');
 
+// pdf-parse bundles a ~2017 snapshot of PDF.js that fails outright ("bad
+// XRef entry" and similar) on PDFs using newer cross-reference-stream
+// structures — common output from Canva, Google Docs, and some Word
+// export paths, not actually corrupt or password-protected files. When
+// pdf-parse throws, we retry with pdfjs-dist (actively maintained,
+// current PDF.js) before giving up — same graceful-degradation shape as
+// the Chromium -> pdfkit fallback used for PDF export.
+async function extractPdfText(buffer) {
+  try {
+    const r = await pdfParse(buffer);
+    return r.text;
+  } catch (e) {
+    console.warn('pdf-parse failed, retrying with pdfjs-dist:', e.message);
+    const pdfjsLib = await import('pdfjs-dist/legacy/build/pdf.mjs');
+    const doc = await pdfjsLib.getDocument({ data: new Uint8Array(buffer), useSystemFonts: true }).promise;
+    let text = '';
+    for (let i = 1; i <= doc.numPages; i++) {
+      const page = await doc.getPage(i);
+      const content = await page.getTextContent();
+      // Reconstruct line breaks from each item's hasEOL flag — without
+      // this, an entire page collapses into one line and the resume
+      // parser's "heading alone on its own line" section detection
+      // (e.g. "SKILLS") never matches anything.
+      for (const item of content.items) {
+        text += item.str;
+        text += item.hasEOL ? '\n' : ' ';
+      }
+      text += '\n';
+    }
+    return text;
+  }
+}
+
 /**
  * Turn an uploaded file (from multer) into plain text.
  * Throws an Error with a user-safe `.userMessage` and `.status` on failure,
@@ -35,8 +68,7 @@ async function extractText(file) {
       const r = await mammoth.extractRawText({ buffer: file.buffer });
       text = r.value;
     } else if (check.type === 'pdf') {
-      const r = await pdfParse(file.buffer);
-      text = r.text;
+      text = await extractPdfText(file.buffer);
     } else {
       text = file.buffer.toString('utf-8');
     }

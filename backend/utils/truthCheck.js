@@ -77,14 +77,17 @@ function checkTextAgainstTruth(aiText, groundTruth, originalText = '') {
   };
 }
 
-// Same truth-constraint check as checkTextAgainstTruth, but scoped to a
-// single bullet rewrite: the ground truth is the target bullet itself
-// (a rewrite may only rephrase that bullet, not pull in facts from the
-// rest of the resume), and reverting on !isSafe falls back to it.
-function checkBulletRewrite(aiText, originalBullet) {
+// Same truth-constraint check as checkTextAgainstTruth, scoped to one
+// bullet rewrite. Ground truth is the bullet's own words PLUS the rest
+// of the resume (when the caller has it) — a rewrite may reuse a term
+// that's genuinely true of the candidate even if it wasn't in this
+// exact bullet (e.g. a skill listed in the Skills section). Checking
+// against only the single bullet's own wording made almost any
+// rephrasing look "unsafe" even when it introduced nothing untrue.
+function checkBulletRewrite(aiText, originalBullet, resumeGroundTruth = null) {
   const groundTruth = {
-    words: new Set(extractKeywords(originalBullet || '')),
-    numbers: new Set((String(originalBullet || '').match(/\b\d+(\.\d+)?%?\b/g) || [])),
+    words: new Set([...extractKeywords(originalBullet || ''), ...(resumeGroundTruth?.words || [])]),
+    numbers: new Set([...(String(originalBullet || '').match(/\b\d+(\.\d+)?%?\b/g) || []), ...(resumeGroundTruth?.numbers || [])]),
   };
   return checkTextAgainstTruth(aiText, groundTruth, originalBullet);
 }

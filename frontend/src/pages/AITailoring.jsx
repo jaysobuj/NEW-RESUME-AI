@@ -37,8 +37,16 @@ export default function AITailoring() {
 
   const loadTailoredResume = async (id) => {
     if (!id) { setTailoredResume(null); return; }
-    const res = await api.get(`/resumes/${id}`);
-    setTailoredResume(res.data.resume);
+    try {
+      const res = await api.get(`/resumes/${id}`);
+      setTailoredResume(res.data.resume);
+    } catch (err) {
+      // The linked tailored resume no longer exists (e.g. deleted from
+      // the builder) — don't leave the workflow silently pointing at a
+      // dead id forever, and don't leave a spinner-less blank state.
+      setTailoredResume(null);
+      await api.post('/workflow/tailored-resume', { resumeId: null }).catch(() => {});
+    }
   };
 
   useEffect(() => {
@@ -96,7 +104,11 @@ export default function AITailoring() {
   // (summary + relevant bullets + skill order), not only the summary.
   // Creates the tailored copy on first use; every call after that edits
   // it in place. The original resume is never touched.
-  const applyChanges = async ({ summary, bulletEdits } = {}) => {
+  const applyChanges = async ({ summary, bulletEdits, addSkills } = {}) => {
+    if (!originalResume) {
+      setError('Still loading your resume — please try again in a moment.');
+      return;
+    }
     setApplying(true);
     try {
       let targetId = tailoredResume?.id;
@@ -110,13 +122,27 @@ export default function AITailoring() {
         targetId = dup.data.resume.id;
         base = dup.data.resume;
         await api.post('/workflow/tailored-resume', { resumeId: targetId });
+        // Commit immediately — if the PUT below fails, the app still
+        // knows this tailored resume exists instead of forgetting it
+        // and creating ANOTHER duplicate on the next retry.
+        setTailoredResume(base);
+        reloadStatus();
       }
 
       const fields = {};
+      // Skills are the human self-certifying "yes I genuinely have this" —
+      // the AI never adds to this list, only the user's own click does.
+      let skillsList = safeParse(base?.skills).length ? safeParse(base?.skills) : (base?.skills || []);
+      skillsList = skillsList.map(s => (typeof s === 'string' ? s : s.name || ''));
+      let skillsTouched = false;
+      (addSkills || []).forEach(s => {
+        if (!skillsList.some(x => x.toLowerCase() === s.toLowerCase())) { skillsList.push(s); skillsTouched = true; }
+      });
       if (summary !== undefined) {
         fields.summary = summary;
-        fields.skills = reorderSkills(base?.skills, job.description);
+        skillsTouched = true; // existing behaviour: reorder skills whenever the summary is applied
       }
+      if (skillsTouched) fields.skills = reorderSkills(skillsList, job.description);
       if (bulletEdits?.length) {
         const experience = JSON.parse(JSON.stringify(safeParse(base?.experience)));
         bulletEdits.forEach(({ expIndex, bulletIndex, text }) => {
@@ -135,7 +161,7 @@ export default function AITailoring() {
       setPendingEdit(null);
       setPreviewKey(k => k + 1);
     } catch (err) {
-      setError('Could not save the tailored resume.');
+      setError(err.response?.data?.error || 'Could not save the tailored resume. Your progress so far was kept — try again.');
     } finally {
       setApplying(false);
     }
@@ -143,6 +169,11 @@ export default function AITailoring() {
 
   const applySummary = (summaryText) => applyChanges({ summary: summaryText });
   const applyBullet = (edit) => applyChanges({ bulletEdits: [edit] });
+  const addSkill = (keyword) => applyChanges({ addSkills: [keyword] });
+
+  const currentSkills = safeParse((tailoredResume || originalResume)?.skills)
+    .map(s => (typeof s === 'string' ? s : s.name || '').toLowerCase());
+  const hasSkill = (keyword) => currentSkills.includes(keyword.toLowerCase());
 
   const sendChat = async () => {
     if (!chatInput.trim() || !resumeId) return;
@@ -259,6 +290,13 @@ export default function AITailoring() {
               <span className={`badge ${proposal.source === 'gemini' ? 'badge-purple' : 'badge-gray'}`}>
                 {proposal.source === 'gemini' ? '🤖 Gemini AI' : '📏 Local Rules'}
               </span>
+              {proposal.tailoredSummary === currentSummary && !(proposal.tailoredBullets?.length > 0) && (
+                <Alert type="warning" style={{ marginTop: 10 }}>
+                  No safe changes found — the AI's rewrite would have introduced skills or claims not backed by your
+                  resume, so your original summary was kept unchanged rather than invent a fit that isn't there. This
+                  usually means the role is a significant departure from your current experience.
+                </Alert>
+              )}
               <div style={{ marginTop: 12, background: 'var(--bg)', border: '1.5px solid var(--border)', borderRadius: 10, padding: 14, fontSize: 14 }}>
                 {proposal.tailoredSummary}
               </div>
@@ -280,11 +318,27 @@ export default function AITailoring() {
               {proposal.keywordsToAdd?.length > 0 && (
                 <div style={{ marginTop: 10 }}>
                   <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--text-muted)' }}>KEYWORDS TO CONSIDER</div>
-                  <div className="tag-list">{proposal.keywordsToAdd.map((k, i) => <span key={i} className="tag">{k}</span>)}</div>
+                  <p style={{ fontSize: 11.5, color: 'var(--text-muted)', margin: '2px 0 6px' }}>
+                    Only add a skill if you can genuinely back it up — clicking "+" adds it to this tailored resume's Skills section.
+                  </p>
+                  <div className="tag-list">
+                    {proposal.keywordsToAdd.map((k, i) => hasSkill(k) ? (
+                      <span key={i} className="tag" style={{ background: '#f0fdf4', color: '#166534', borderColor: '#bbf7d0' }}>✓ {k}</span>
+                    ) : (
+                      <button key={i} className="tag" style={{ cursor: 'pointer', border: '1px dashed var(--border)', background: 'none' }}
+                        disabled={applying} onClick={() => addSkill(k)}>
+                        + {k}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               )}
               {proposal.truthFlags?.length > 0 && (
-                <Alert type="warning" style={{ marginTop: 10 }}>{proposal.truthFlags.join(' ')}</Alert>
+                <Alert type="warning" style={{ marginTop: 10 }}>
+                  <ul style={{ margin: 0, paddingLeft: 16 }}>
+                    {proposal.truthFlags.map((f, i) => <li key={i} style={{ marginBottom: i < proposal.truthFlags.length - 1 ? 6 : 0 }}>{f}</li>)}
+                  </ul>
+                </Alert>
               )}
               <div style={{ display: 'flex', gap: 8, marginTop: 12 }}>
                 <button className="btn btn-primary btn-sm"
