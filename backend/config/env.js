@@ -16,7 +16,7 @@ const REQUIRED = ['JWT_SECRET'];
 const OPTIONAL_WITH_DEFAULTS = {
   PORT: '5000',
   JWT_EXPIRES_IN: '30d',
-  GEMINI_MODEL: 'gemini-3.5-flash',
+  GEMINI_MODEL: 'gemini-3.5-flash-lite',
   CLIENT_ORIGIN: 'http://localhost:3000',
 };
 
@@ -36,8 +36,11 @@ function validateEnv() {
     errors.push('JWT_SECRET is too short. Use at least 16 random characters.');
   }
 
-  // Reject the placeholder value shipped in .env.example
-  if (process.env.JWT_SECRET === 'replace-with-a-long-random-string') {
+  // Reject the placeholder value shipped in .env.example — this must be
+  // kept in sync with that file's actual placeholder text, otherwise
+  // someone who copies it verbatim boots with a publicly-known-from-
+  // source JWT_SECRET that still passes the length check above.
+  if (process.env.JWT_SECRET === 'replace_with_a_random_string_at_least_16_characters_long') {
     errors.push('JWT_SECRET is still the example placeholder. Set a real random value.');
   }
 
