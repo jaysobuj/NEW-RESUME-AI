@@ -1726,24 +1726,30 @@
     "salaryMin": 52000,
     "salaryMax": 68000,
     "currency": "AUD",
-    "description": "Provide phone and remote support to staff across our warehouse and office locations, resolving hardware, software and network access issues. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Help Desk, Windows, Remote Support, Customer Service, Hardware Troubleshooting.",
+    "description": "Join our IT support team providing first-line technical support to staff across our warehouse and office locations. You'll troubleshoot hardware and software issues, support Windows devices and Microsoft 365, assist users remotely and in person, resolve basic network and connectivity issues, and document support requests before escalating complex issues to Level 2. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Help Desk, Technical Support, Hardware Troubleshooting, Software Troubleshooting, Windows, Customer Service, Remote Support, Network Troubleshooting, Microsoft 365.",
     "requiredSkills": [
       "Help Desk",
+      "Technical Support",
+      "Hardware Troubleshooting",
+      "Software Troubleshooting",
       "Windows",
-      "Remote Support",
       "Customer Service",
-      "Hardware Troubleshooting"
+      "Remote Support",
+      "Network Troubleshooting",
+      "Microsoft 365"
     ],
     "postedDate": "2026-07-14",
     "source": "seed",
     "applyUrl": null,
     "experienceLevel": "Mid-level",
     "responsibilities": [
-      "Provide phone and remote support to staff across our warehouse and office locations, resolving hardware, software and network access issues."
+      "Provide first-line technical support and troubleshoot hardware and software issues.",
+      "Support Windows devices and Microsoft 365, assisting users remotely and in person.",
+      "Resolve basic network/connectivity issues and document support requests before escalating complex issues."
     ],
     "preferredSkills": [
-      "Analytical Thinking",
-      "Attention to Detail"
+      "Active Directory",
+      "Ticketing Systems"
     ]
   },
   {
@@ -1999,6 +2005,262 @@
     "preferredSkills": [
       "Documentation",
       "Time Management"
+    ]
+  },
+  {
+    "id": "job_065",
+    "title": "Retail Sales Associate",
+    "company": "Coastal Homeware Co.",
+    "location": "Brisbane, QLD",
+    "workMode": "On-site",
+    "jobType": "Part-time",
+    "type": "Part-time",
+    "salaryMin": 48000,
+    "salaryMax": 58000,
+    "currency": "AUD",
+    "description": "Join our store team helping customers find the right products, processing sales, and keeping the floor looking great. You'll build rapport with customers, meet daily sales targets, and handle transactions accurately using our POS system. Typically suited to candidates with 0-2 years of relevant experience. Key skills: Customer Service, POS Systems, Upselling, Cash Handling, Product Knowledge.",
+    "requiredSkills": [
+      "Customer Service",
+      "POS Systems",
+      "Upselling",
+      "Cash Handling",
+      "Product Knowledge"
+    ],
+    "postedDate": "2026-07-28",
+    "source": "seed",
+    "applyUrl": null,
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "Join our store team helping customers find the right products, processing sales, and keeping the floor looking great.",
+      "You'll build rapport with customers, meet daily sales targets, and handle transactions accurately using our POS system."
+    ],
+    "preferredSkills": [
+      "Time Management",
+      "Communication"
+    ]
+  },
+  {
+    "id": "job_066",
+    "title": "Sales Representative",
+    "company": "Northbridge Supplies",
+    "location": "Melbourne, VIC",
+    "workMode": "Hybrid",
+    "jobType": "Full-time",
+    "type": "Full-time",
+    "salaryMin": 70000,
+    "salaryMax": 95000,
+    "currency": "AUD",
+    "description": "Drive new business across an assigned territory, building relationships with trade customers and closing deals against monthly targets. You'll prospect new accounts, run product demonstrations, and maintain accurate records in our CRM. Typically suited to candidates with 2-5 years of relevant experience. Key skills: B2B Sales, Prospecting, CRM, Negotiation, Territory Management.",
+    "requiredSkills": [
+      "B2B Sales",
+      "Prospecting",
+      "CRM",
+      "Negotiation",
+      "Territory Management"
+    ],
+    "postedDate": "2026-08-01",
+    "source": "seed",
+    "applyUrl": null,
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "Drive new business across an assigned territory, building relationships with trade customers and closing deals against monthly targets.",
+      "You'll prospect new accounts, run product demonstrations, and maintain accurate records in our CRM."
+    ],
+    "preferredSkills": [
+      "Attention to Detail",
+      "Problem Solving"
+    ]
+  },
+  {
+    "id": "job_067",
+    "title": "Account Manager",
+    "company": "Palisade Games",
+    "location": "Sydney, NSW",
+    "workMode": "Hybrid",
+    "jobType": "Full-time",
+    "type": "Full-time",
+    "salaryMin": 85000,
+    "salaryMax": 115000,
+    "currency": "AUD",
+    "description": "Own a portfolio of existing client accounts, driving renewals, upsells and long-term satisfaction. You'll be the main point of contact for key clients, run quarterly business reviews, and work closely with product teams on feedback. Typically suited to candidates with 3-6 years of relevant experience. Key skills: Account Management, CRM, Upselling, Client Relationship Management, Salesforce.",
+    "requiredSkills": [
+      "Account Management",
+      "CRM",
+      "Upselling",
+      "Client Relationship Management",
+      "Salesforce"
+    ],
+    "postedDate": "2026-07-30",
+    "source": "seed",
+    "applyUrl": null,
+    "experienceLevel": "Senior",
+    "responsibilities": [
+      "Own a portfolio of existing client accounts, driving renewals, upsells and long-term satisfaction.",
+      "You'll be the main point of contact for key clients, run quarterly business reviews, and work closely with product teams on feedback."
+    ],
+    "preferredSkills": [
+      "Stakeholder Management",
+      "Teamwork"
+    ]
+  },
+  {
+    "id": "job_068",
+    "title": "Business Development Executive",
+    "company": "Meridian Retail",
+    "location": "Perth, WA",
+    "workMode": "Hybrid",
+    "jobType": "Full-time",
+    "type": "Full-time",
+    "salaryMin": 75000,
+    "salaryMax": 110000,
+    "currency": "AUD",
+    "description": "Identify and pursue new business opportunities through outbound outreach, partnerships and networking. You'll qualify leads, pitch our services to decision-makers, and hand off closed deals to the account team. Typically suited to candidates with 2-5 years of relevant experience. Key skills: Lead Generation, Cold Calling, Negotiation, CRM, B2B Sales.",
+    "requiredSkills": [
+      "Lead Generation",
+      "Cold Calling",
+      "Negotiation",
+      "CRM",
+      "B2B Sales"
+    ],
+    "postedDate": "2026-08-05",
+    "source": "seed",
+    "applyUrl": null,
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "Identify and pursue new business opportunities through outbound outreach, partnerships and networking.",
+      "You'll qualify leads, pitch our services to decision-makers, and hand off closed deals to the account team."
+    ],
+    "preferredSkills": [
+      "Communication",
+      "Time Management"
+    ]
+  },
+  {
+    "id": "job_069",
+    "title": "Field Service Technician",
+    "company": "Northern Logistics Group",
+    "location": "Adelaide, SA",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "type": "Full-time",
+    "salaryMin": 62000,
+    "salaryMax": 82000,
+    "currency": "AUD",
+    "description": "Travel to customer sites to install, maintain and repair equipment, diagnosing faults and completing jobs to a high standard. You'll manage your own daily job schedule, carry spare parts inventory, and provide clear customer updates. Typically suited to candidates with 1-3 years of relevant experience. Key skills: Hardware Troubleshooting, Equipment Maintenance, Customer Service, Fault Diagnosis, Time Management.",
+    "requiredSkills": [
+      "Hardware Troubleshooting",
+      "Equipment Maintenance",
+      "Customer Service",
+      "Fault Diagnosis",
+      "Time Management"
+    ],
+    "postedDate": "2026-07-22",
+    "source": "seed",
+    "applyUrl": null,
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "Travel to customer sites to install, maintain and repair equipment, diagnosing faults and completing jobs to a high standard.",
+      "You'll manage your own daily job schedule, carry spare parts inventory, and provide clear customer updates."
+    ],
+    "preferredSkills": [
+      "Problem Solving",
+      "Attention to Detail"
+    ]
+  },
+  {
+    "id": "job_070",
+    "title": "Electronics Technician",
+    "company": "Stonebridge Manufacturing",
+    "location": "Adelaide, SA",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "type": "Full-time",
+    "salaryMin": 65000,
+    "salaryMax": 88000,
+    "currency": "AUD",
+    "description": "Test, calibrate and repair electronic assemblies on our production line, working from schematics and technical documentation. You'll use soldering and diagnostic equipment daily and log faults for the engineering team. Typically suited to candidates with 1-3 years of relevant experience. Key skills: Soldering, Circuit Testing, Fault Diagnosis, Technical Documentation, Quality Control.",
+    "requiredSkills": [
+      "Soldering",
+      "Circuit Testing",
+      "Fault Diagnosis",
+      "Technical Documentation",
+      "Quality Control"
+    ],
+    "postedDate": "2026-07-19",
+    "source": "seed",
+    "applyUrl": null,
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "Test, calibrate and repair electronic assemblies on our production line, working from schematics and technical documentation.",
+      "You'll use soldering and diagnostic equipment daily and log faults for the engineering team."
+    ],
+    "preferredSkills": [
+      "Stakeholder Management",
+      "Teamwork"
+    ]
+  },
+  {
+    "id": "job_071",
+    "title": "IT Field Technician",
+    "company": "Coastal Health Network",
+    "location": "Gold Coast, QLD",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "type": "Full-time",
+    "salaryMin": 58000,
+    "salaryMax": 78000,
+    "currency": "AUD",
+    "description": "Visit sites across our network to install, configure and repair desktops, printers and network hardware. You'll rack and cable equipment, run basic network troubleshooting, and hand over clear job notes to the service desk. Typically suited to candidates with 1-3 years of relevant experience. Key skills: Hardware Troubleshooting, Network Troubleshooting, Windows, Customer Service, Cabling.",
+    "requiredSkills": [
+      "Hardware Troubleshooting",
+      "Network Troubleshooting",
+      "Windows",
+      "Customer Service",
+      "Cabling"
+    ],
+    "postedDate": "2026-07-25",
+    "source": "seed",
+    "applyUrl": null,
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "Visit sites across our network to install, configure and repair desktops, printers and network hardware.",
+      "You'll rack and cable equipment, run basic network troubleshooting, and hand over clear job notes to the service desk."
+    ],
+    "preferredSkills": [
+      "Communication",
+      "Time Management"
+    ]
+  },
+  {
+    "id": "job_072",
+    "title": "Telecommunications Technician",
+    "company": "Northbridge Supplies",
+    "location": "Canberra, ACT",
+    "workMode": "On-site",
+    "jobType": "Full-time",
+    "type": "Full-time",
+    "salaryMin": 68000,
+    "salaryMax": 92000,
+    "currency": "AUD",
+    "description": "Install and maintain telecommunications infrastructure including cabling, routers and network equipment across residential and commercial sites. You'll test line quality, troubleshoot connectivity faults, and follow safety procedures on every job. Typically suited to candidates with 2-4 years of relevant experience. Key skills: Cabling, Network Troubleshooting, Fault Diagnosis, TCP/IP, Customer Service.",
+    "requiredSkills": [
+      "Cabling",
+      "Network Troubleshooting",
+      "Fault Diagnosis",
+      "TCP/IP",
+      "Customer Service"
+    ],
+    "postedDate": "2026-07-27",
+    "source": "seed",
+    "applyUrl": null,
+    "experienceLevel": "Mid-level",
+    "responsibilities": [
+      "Install and maintain telecommunications infrastructure including cabling, routers and network equipment across residential and commercial sites.",
+      "You'll test line quality, troubleshoot connectivity faults, and follow safety procedures on every job."
+    ],
+    "preferredSkills": [
+      "Problem Solving",
+      "Attention to Detail"
     ]
   }
 ]

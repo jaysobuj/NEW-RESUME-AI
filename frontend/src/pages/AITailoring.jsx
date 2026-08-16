@@ -28,6 +28,7 @@ export default function AITailoring() {
   const [atsFeedback] = useState(location.state?.atsFeedback || null);
 
   const [previewKey, setPreviewKey] = useState(0);
+  const [appliedSummary, setAppliedSummary] = useState(null);
   const [showOriginal, setShowOriginal] = useState(false);
   const [chatHistory, setChatHistory] = useState([]);
   const [chatInput, setChatInput]     = useState('');
@@ -76,9 +77,9 @@ export default function AITailoring() {
 
   const runTailor = async () => {
     if (!resumeId || !job) return;
-    setError(''); setLoading(true); setProposal(null);
+    setError(''); setLoading(true); setProposal(null); setAppliedSummary(null);
     try {
-      const res = await api.post('/ai/tailor', { resumeId, jobDescription: job.description });
+      const res = await api.post('/ai/tailor', { resumeId, jobDescription: job.description, jobId: job.id });
       setProposal(res.data);
     } catch (err) {
       setError(err.response?.data?.error || 'Failed to tailor resume.');
@@ -157,6 +158,14 @@ export default function AITailoring() {
       await api.put(`/resumes/${targetId}`, fields);
       await loadTailoredResume(targetId);
       reloadStatus();
+
+      const applied = [];
+      if (summary !== undefined) applied.push('Professional summary aligned to target role');
+      if (bulletEdits?.length) applied.push(`${bulletEdits.length} experience bullet${bulletEdits.length > 1 ? 's' : ''} sharpened with job-relevant wording`);
+      if (skillsTouched && summary !== undefined) applied.push('Existing skills reordered by job relevance');
+      if (addSkills?.length) applied.push(`Self-certified skill${addSkills.length > 1 ? 's' : ''} added: ${addSkills.join(', ')}`);
+      setAppliedSummary(applied);
+
       setProposal(null);
       setPendingEdit(null);
       setPreviewKey(k => k + 1);
@@ -297,7 +306,12 @@ export default function AITailoring() {
                   usually means the role is a significant departure from your current experience.
                 </Alert>
               )}
-              <div style={{ marginTop: 12, background: 'var(--bg)', border: '1.5px solid var(--border)', borderRadius: 10, padding: 14, fontSize: 14 }}>
+              {proposal.tailoredSummary !== currentSummary && (
+                <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--primary)', marginTop: 10 }}>
+                  ✨ ATS-Optimised Summary — aligned to {job.title}
+                </div>
+              )}
+              <div style={{ marginTop: 6, background: 'var(--bg)', border: '1.5px solid var(--border)', borderRadius: 10, padding: 14, fontSize: 14 }}>
                 {proposal.tailoredSummary}
               </div>
               {proposal.tailoredBullets?.length > 0 && (
@@ -317,9 +331,9 @@ export default function AITailoring() {
               )}
               {proposal.keywordsToAdd?.length > 0 && (
                 <div style={{ marginTop: 10 }}>
-                  <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--text-muted)' }}>KEYWORDS TO CONSIDER</div>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--text-muted)' }}>JOB SKILLS NOT FOUND IN YOUR RESUME</div>
                   <p style={{ fontSize: 11.5, color: 'var(--text-muted)', margin: '2px 0 6px' }}>
-                    Only add a skill if you can genuinely back it up — clicking "+" adds it to this tailored resume's Skills section.
+                    Only add a skill if you can genuinely back it up — clicking "+" adds it to this tailored resume's Skills section. The AI never adds these on its own.
                   </p>
                   <div className="tag-list">
                     {proposal.keywordsToAdd.map((k, i) => hasSkill(k) ? (
@@ -343,13 +357,24 @@ export default function AITailoring() {
               <div style={{ display: 'flex', gap: 8, marginTop: 12 }}>
                 <button className="btn btn-primary btn-sm"
                   onClick={() => applyChanges({ summary: proposal.tailoredSummary, bulletEdits: proposal.tailoredBullets })}
-                  disabled={applying}>
+                  disabled={applying || (proposal.tailoredSummary === currentSummary && !(proposal.tailoredBullets?.length > 0))}>
                   {applying ? '⏳...' : `✅ Apply All${proposal.tailoredBullets?.length ? ` (summary + ${proposal.tailoredBullets.length} bullets)` : ''}`}
                 </button>
                 <button className="btn btn-secondary btn-sm" onClick={runTailor} disabled={loading}>🔄 Regenerate</button>
                 <button className="btn btn-ghost btn-sm" onClick={() => setProposal(null)}>✕ Discard</button>
               </div>
             </Card>
+          )}
+
+          {appliedSummary && (
+            <Alert type="success">
+              <div>
+                <strong>✓ Safe improvements applied</strong>
+                <ul style={{ margin: '6px 0 0', paddingLeft: 18 }}>
+                  {appliedSummary.map((line, i) => <li key={i}>{line}</li>)}
+                </ul>
+              </div>
+            </Alert>
           )}
 
           {tailoredResume && (

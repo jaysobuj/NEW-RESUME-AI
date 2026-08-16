@@ -28,6 +28,7 @@ const db = require('../config/db');
 const requireAuth = require('../middleware/auth');
 const { aiLimiter } = require('../middleware/rateLimit');
 const aiService = require('../utils/aiService');
+const { getJob } = require('../utils/jobProvider');
 
 const router = express.Router();
 router.use(requireAuth);
@@ -111,16 +112,23 @@ router.post('/rewrite-bullet', async (req, res) => {
 });
 
 // POST /api/ai/tailor
+// Optional jobId: when tailoring for a job from the local catalogue, its
+// curated requiredSkills/preferredSkills (see seedJobs.json) let the
+// summary rewrite prioritise the specific verified terms that matter
+// most for THIS job, instead of only working from raw job-ad prose.
 router.post('/tailor', async (req, res) => {
-  const { jobDescription } = req.body;
+  const { jobDescription, jobId } = req.body;
   if (!jobDescription || !String(jobDescription).trim())
     return res.status(400).json({ error: 'Please paste the job description you are targeting.' });
 
   const resume = loadResume(req, res);
   if (!resume) return;
 
+  const job = jobId ? getJob(jobId) : null;
+  const requiredSkills = job ? [...(job.requiredSkills || []), ...(job.preferredSkills || [])] : [];
+
   return withCredit(req, res,
-    () => aiService.tailorResume(resume, String(jobDescription).slice(0, 20000)));
+    () => aiService.tailorResume(resume, String(jobDescription).slice(0, 20000), requiredSkills));
 });
 
 // POST /api/ai/chat — compact chat used inside AI Tailoring. Proposes

@@ -10,6 +10,8 @@ import api from '../services/api';
 const CATEGORY_LABELS = {
   keywordMatch:           '🔑 Keyword Match',
   skillsMatch:            '🛠️ Skills Match',
+  experienceRelevance:    '💼 Experience Relevance',
+  summaryRelevance:       '📝 Summary Relevance',
   sectionCompleteness:    '📋 Section Completeness',
   contactDetails:         '📞 Contact Details',
   actionVerbs:            '⚡ Action Verbs',
@@ -38,6 +40,7 @@ export default function ATSScan() {
   const [error, setError]         = useState('');
   const [autoRan, setAutoRan]     = useState(false);
   const [addingSkill, setAddingSkill] = useState('');
+  const [originalBest, setOriginalBest] = useState(null); // best score of the parent (pre-tailoring) resume, if any
 
   useEffect(() => {
     Promise.all([api.get('/resumes'), api.get('/workflow')]).then(([resumesRes, workflowRes]) => {
@@ -70,6 +73,7 @@ export default function ATSScan() {
   const onResumeChange = (id) => {
     setResumeId(id);
     setResult(null);
+    setOriginalBest(null);
     loadHistory(id);
   };
 
@@ -80,9 +84,21 @@ export default function ATSScan() {
     }
     setError(''); setLoading(true); setResult(null);
     try {
-      const res = await api.post('/ats/scan', { resumeId, jobDescription });
+      const res = await api.post('/ats/scan', { resumeId, jobDescription, jobId: job?.id || null });
       setResult(res.data);
       loadHistory(resumeId);
+
+      // Fix 8: compare a tailored resume against its ORIGINAL's best
+      // score, not just its own (short) scan history — that's the
+      // number that actually demonstrates tailoring worked.
+      const activeResume = resumes.find(r => r.id === resumeId);
+      if (activeResume?.parent_resume_id) {
+        const parentHistory = await api.get(`/ats/history/${activeResume.parent_resume_id}`).catch(() => null);
+        const scores = parentHistory?.data?.scans?.map(s => s.overall_score) || [];
+        setOriginalBest(scores.length ? Math.max(...scores) : null);
+      } else {
+        setOriginalBest(null);
+      }
     } catch(err) {
       setError(err.response?.data?.error || 'Scan failed.');
     } finally { setLoading(false); }
@@ -112,7 +128,7 @@ export default function ATSScan() {
 
   const improveWithTailoring = () => {
     navigate('/ai-tailoring', {
-      state: { atsFeedback: { score: result.overallScore, missingKeywords: result.missingKeywords } },
+      state: { atsFeedback: { score: result.overallScore, missingKeywords: result.missingSkills?.length ? result.missingSkills : result.missingKeywords } },
     });
   };
 
@@ -191,6 +207,13 @@ export default function ATSScan() {
                     : `⬇️ ${previousBest - result.overallScore}% below your previous best`}
                 </div>
               )}
+              {originalBest !== null && result && (
+                <div style={{ marginTop: 10, padding: '8px 12px', background: result.overallScore >= originalBest ? '#f0fdf4' : '#fef2f2', border: `1px solid ${result.overallScore >= originalBest ? '#bbf7d0' : '#fecaca'}`, borderRadius: 8, fontSize: 13, fontWeight: 600 }}>
+                  {result.overallScore >= originalBest
+                    ? `🚀 +${result.overallScore - originalBest}% vs your original (untailored) resume (${originalBest}%)`
+                    : `⬇️ ${originalBest - result.overallScore}% below your original resume (${originalBest}%)`}
+                </div>
+              )}
             </div>
           )}
         </Card>
@@ -219,24 +242,26 @@ export default function ATSScan() {
                   <ProgressBar value={val} colour={scoreColour(val)} />
                 </div>
               ))}
-              <h4 style={{ fontSize: 15, fontWeight: 700, margin: '16px 0 10px' }}>✅ Matched</h4>
+              <h4 style={{ fontSize: 15, fontWeight: 700, margin: '16px 0 10px' }}>🛠️ Matched Technical Skills</h4>
               <div className="tag-list">
-                {result.matchedKeywords.length === 0
+                {(result.matchedSkills || []).length === 0
                   ? <span style={{ color: '#94a3b8', fontSize: 13 }}>None found</span>
-                  : result.matchedKeywords.map(k => (
-                    <span key={k} className="tag" style={{ background: '#f0fdf4', color: '#166534', borderColor: '#bbf7d0' }}>{k}</span>
+                  : result.matchedSkills.map(k => (
+                    <span key={k} className="tag" style={{ background: '#f0fdf4', color: '#166534', borderColor: '#bbf7d0' }}>✓ {k}</span>
                   ))}
               </div>
-              <h4 style={{ fontSize: 15, fontWeight: 700, margin: '16px 0 10px' }}>❌ Missing</h4>
-              {result.missingKeywords.length > 0 && (
+
+              <h4 style={{ fontSize: 15, fontWeight: 700, margin: '16px 0 6px' }}>🎯 Job Skills Not Found In Your Resume</h4>
+              {(result.missingSkills || []).length > 0 && (
                 <p style={{ fontSize: 11.5, color: 'var(--text-muted)', margin: '0 0 6px' }}>
                   Only click "+" if you genuinely have it — this adds it to your resume's Skills section and re-scans.
+                  The AI never adds these on its own.
                 </p>
               )}
               <div className="tag-list">
-                {result.missingKeywords.length === 0
+                {(result.missingSkills || []).length === 0
                   ? <span style={{ color: '#94a3b8', fontSize: 13 }}>None — great match! 🎉</span>
-                  : result.missingKeywords.map(k => (
+                  : result.missingSkills.map(k => (
                     <button key={k} className="tag" disabled={!!addingSkill}
                       style={{ cursor: 'pointer', background: '#fef2f2', color: '#b91c1c', borderColor: '#fecaca' }}
                       onClick={() => addSkillAndRescan(k)}>
@@ -244,6 +269,24 @@ export default function ATSScan() {
                     </button>
                   ))}
               </div>
+
+              <details style={{ marginTop: 14 }}>
+                <summary style={{ cursor: 'pointer', fontSize: 12.5, color: 'var(--text-muted)', fontWeight: 600 }}>
+                  General keyword overlap ({result.matchedKeywords.length} matched, {result.missingKeywords.length} missing)
+                </summary>
+                <div style={{ marginTop: 8 }}>
+                  <div className="tag-list">
+                    {result.matchedKeywords.map(k => (
+                      <span key={k} className="tag" style={{ background: '#f0fdf4', color: '#166534', borderColor: '#bbf7d0', fontSize: 11 }}>{k}</span>
+                    ))}
+                  </div>
+                  <div className="tag-list" style={{ marginTop: 6 }}>
+                    {result.missingKeywords.map(k => (
+                      <span key={k} className="tag" style={{ background: '#fef2f2', color: '#b91c1c', borderColor: '#fecaca', fontSize: 11 }}>{k}</span>
+                    ))}
+                  </div>
+                </div>
+              </details>
               <h4 style={{ fontSize: 15, fontWeight: 700, margin: '16px 0 10px' }}>💡 Suggestions</h4>
               <ul style={{ fontSize: 13.5, paddingLeft: 18, color: '#374151' }}>
                 {result.suggestions.map((s, i) => <li key={i} style={{ marginBottom: 6 }}>{s}</li>)}

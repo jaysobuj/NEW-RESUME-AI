@@ -4,15 +4,19 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import { Card, Alert, GradientBanner, ProgressBar } from '../components/UI';
+import UpgradeModal from '../components/UpgradeModal';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
 import api from '../services/api';
 
 export default function Settings() {
-  const { user, logout } = useAuth();
+  const { user, logout, refreshUser } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const [quota, setQuota]       = useState(null);
+  const [showUpgrade, setShowUpgrade] = useState(false);
+  const [billingMsg, setBillingMsg]   = useState(null);
+  const [downgrading, setDowngrading] = useState(false);
   const [name, setName]         = useState(user?.name || '');
   const [nameMsg, setNameMsg]   = useState(null);
   const [curPw, setCurPw]       = useState('');
@@ -23,9 +27,31 @@ export default function Settings() {
   const [showDel, setShowDel]   = useState(false);
   const [delMsg, setDelMsg]     = useState('');
 
-  useEffect(() => {
-    api.get('/ai/quota').then(res => setQuota(res.data)).catch(() => {});
-  }, []);
+  const loadQuota = () => api.get('/ai/quota').then(res => setQuota(res.data)).catch(() => {});
+
+  useEffect(() => { loadQuota(); }, []);
+
+  const handleUpgradeSuccess = async (data) => {
+    setShowUpgrade(false);
+    setBillingMsg({ type: 'success', text: data.message || 'Upgraded to Pro!' });
+    await refreshUser();
+    loadQuota();
+    setTimeout(() => setBillingMsg(null), 5000);
+  };
+
+  const handleDowngrade = async () => {
+    if (!window.confirm('Switch back to the Free plan (20 credits)? This is just for demo purposes.')) return;
+    setDowngrading(true);
+    try {
+      await api.post('/billing/downgrade');
+      await refreshUser();
+      loadQuota();
+      setBillingMsg({ type: 'info', text: 'Back on the Free plan.' });
+      setTimeout(() => setBillingMsg(null), 4000);
+    } finally {
+      setDowngrading(false);
+    }
+  };
 
   // Save updated display name
   const saveName = async () => {
@@ -135,10 +161,12 @@ export default function Settings() {
                 max={quota.limit}
                 colour={quota.remaining <= 3 ? '#ef4444' : undefined}
               />
-              <div className={`soft-note ${quota.remaining > 5 ? 'ok' : 'warn'}`} style={{ marginTop: 14 }}>
-                {quota.remaining > 5
-                  ? `✅ You have ${quota.remaining} credits remaining.`
-                  : `⚠️ Only ${quota.remaining} credits left! Top-ups coming soon.`}
+              <div className={`soft-note ${quota.remaining > 5 || quota.plan === 'pro' ? 'ok' : 'warn'}`} style={{ marginTop: 14 }}>
+                {quota.plan === 'pro'
+                  ? '⭐ Pro plan — unlimited AI credits.'
+                  : quota.remaining > 5
+                    ? `✅ You have ${quota.remaining} credits remaining.`
+                    : `⚠️ Only ${quota.remaining} credits left! Upgrade to Pro below for unlimited credits.`}
               </div>
               <div style={{ marginTop: 14, fontSize: 13, color: 'var(--text-muted)' }}>
                 Each AI suggestion, bullet rewrite, or tailoring uses 1 credit.
@@ -147,6 +175,46 @@ export default function Settings() {
           ) : (
             <p className="page-subtitle">Loading credits...</p>
           )}
+        </Card>
+
+        {/* Plan & billing — demo upgrade flow, see UpgradeModal.jsx */}
+        <Card title="💳 Plan & Billing">
+          {billingMsg && <Alert type={billingMsg.type}>{billingMsg.text}</Alert>}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 14 }}>
+            <div style={{
+              border: `1.5px solid ${user?.plan !== 'pro' ? 'var(--primary)' : 'var(--border)'}`,
+              borderRadius: 10, padding: 14,
+              background: user?.plan !== 'pro' ? 'var(--primary-light)' : 'transparent',
+            }}>
+              <div style={{ fontWeight: 700, fontSize: 14 }}>🆓 Free</div>
+              <div style={{ fontSize: 20, fontWeight: 800, margin: '6px 0' }}>$0</div>
+              <div style={{ fontSize: 12.5, color: 'var(--text-muted)' }}>20 AI credits</div>
+              {user?.plan !== 'pro' && <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--primary)', marginTop: 8 }}>✓ Current plan</div>}
+            </div>
+            <div style={{
+              border: `1.5px solid ${user?.plan === 'pro' ? '#f59e0b' : 'var(--border)'}`,
+              borderRadius: 10, padding: 14,
+              background: user?.plan === 'pro' ? '#fffbeb' : 'transparent',
+            }}>
+              <div style={{ fontWeight: 700, fontSize: 14 }}>⭐ Pro</div>
+              <div style={{ fontSize: 20, fontWeight: 800, margin: '6px 0' }}>$12<span style={{ fontSize: 12, fontWeight: 500 }}>/mo</span></div>
+              <div style={{ fontSize: 12.5, color: 'var(--text-muted)' }}>Unlimited AI credits</div>
+              {user?.plan === 'pro' && <div style={{ fontSize: 11, fontWeight: 700, color: '#b45309', marginTop: 8 }}>✓ Current plan</div>}
+            </div>
+          </div>
+
+          {user?.plan === 'pro' ? (
+            <button className="btn btn-secondary" onClick={handleDowngrade} disabled={downgrading}>
+              {downgrading ? '⏳...' : '↩️ Switch back to Free (demo)'}
+            </button>
+          ) : (
+            <button className="btn btn-primary" onClick={() => setShowUpgrade(true)}>
+              ⭐ Upgrade to Pro
+            </button>
+          )}
+          <p style={{ fontSize: 11.5, color: 'var(--text-muted)', marginTop: 10 }}>
+            🧪 This is a demo checkout for a capstone project — no real payment processor is connected.
+          </p>
         </Card>
 
         {/* Change password */}
@@ -207,6 +275,10 @@ export default function Settings() {
           )}
         </Card>
       </div>
+
+      {showUpgrade && (
+        <UpgradeModal onClose={() => setShowUpgrade(false)} onSuccess={handleUpgradeSuccess} />
+      )}
     </Layout>
   );
 }

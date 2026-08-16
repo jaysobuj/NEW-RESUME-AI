@@ -6,7 +6,7 @@ const { buildGroundTruth, checkTextAgainstTruth, checkBulletRewrite } = require(
 const { scoreResumeAgainstJob } = require('./atsScoring');
 
 const GEMINI_KEY   = process.env.GEMINI_API_KEY;
-const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.5-flash';
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
 
 function safeParseNames(field) {
   try {
@@ -17,9 +17,12 @@ function safeParseNames(field) {
 }
 
 // Local fallbacks
-function localImproveSummary(resume, jobDescription) {
-  const ats = scoreResumeAgainstJob(resume, jobDescription || '');
-  const top = ats.matchedKeywords.slice(0, 3).join(', ');
+function localImproveSummary(resume, jobDescription, requiredSkills = []) {
+  const ats = scoreResumeAgainstJob(resume, jobDescription || '', requiredSkills);
+  // Prefer curated hard-skill matches (real, phrase-level terms like
+  // "hardware troubleshooting") over generic single-word keyword
+  // overlap — this is what actually makes a truthful match explicit.
+  const top = (ats.matchedSkills.length ? ats.matchedSkills : ats.matchedKeywords).slice(0, 4).join(', ');
   const skills = safeParseNames(resume.skills).slice(0, 3).join(', ');
   let s = resume.summary ? resume.summary.trim() : `${resume.full_name || 'Candidate'} is a motivated professional`;
   if (skills) s += ` skilled in ${skills}`;
@@ -51,11 +54,11 @@ function sanitizeBulletRewrite(output) {
     .trim();
 }
 
-function localTailorResume(resume, jobDescription) {
-  const ats = scoreResumeAgainstJob(resume, jobDescription);
+function localTailorResume(resume, jobDescription, requiredSkills = []) {
+  const ats = scoreResumeAgainstJob(resume, jobDescription, requiredSkills);
   return {
-    tailoredSummary: localImproveSummary(resume, jobDescription),
-    keywordsToAdd: ats.missingKeywords.slice(0, 10),
+    tailoredSummary: localImproveSummary(resume, jobDescription, requiredSkills),
+    keywordsToAdd: (ats.missingSkills.length ? ats.missingSkills : ats.missingKeywords).slice(0, 10),
     reasoning: 'Local rule-based tailoring — no new facts invented, only your existing resume content was used.',
     atsScoreBefore: ats.overallScore,
   };
@@ -132,19 +135,28 @@ function flattenBullets(resume) {
 // proposed bullet is truth-checked the same way a chat bullet edit is;
 // unsafe ones are dropped rather than reverted silently swallowed, so
 // the caller can still see something was flagged.
-async function tailorResume(resume, jobDescription) {
+async function tailorResume(resume, jobDescription, requiredSkills = []) {
   const groundTruth = buildGroundTruth(resume);
   const { flat } = flattenBullets(resume);
+
+  // Reuses the SAME scoring engine ATS Scan uses to find which job-
+  // relevant terms are already verified true of this candidate (skills
+  // section, bullets, current summary — anywhere in the resume). This
+  // is the "extract verified facts, compare with job, keep the overlap"
+  // step: the prompt below is told exactly which terms it's allowed to
+  // lead with, instead of guessing from raw prose.
+  const scored = scoreResumeAgainstJob(resume, jobDescription, requiredSkills);
+  const verifiedRelevantTerms = (scored.matchedSkills.length ? scored.matchedSkills : scored.matchedKeywords).slice(0, 10);
 
   if (GEMINI_KEY) {
     try {
       const bulletList = flat.map((b, i) => `[${i}] (${b.expTitle}): ${b.text}`).join('\n');
-      const prompt = `You are a truth-constrained resume tailoring assistant. Rewrite the professional summary AND select up to 8 of the EXISTING bullet points below that are most relevant to this job, sharpening their wording, ATS keyword alignment and action-verb strength.\n\nRULES:\n1. Do NOT invent skills, numbers, employers, technologies or achievements not already present in the bullet or resume you are rewriting.\n2. Terminology matching (allowed, not fabrication): if the resume already demonstrates a skill/tool/technology that the job description names with different wording (a synonym, abbreviation, or slightly different phrase for the SAME true thing — e.g. resume says "RESTful services" and the job says "REST APIs"), prefer the job description's exact term. This is precise language for something already true, not a new claim. Never do this for a skill/tool/technology that is not genuinely evidenced in the resume.\n\nRespond ONLY in this exact JSON format with no other text:\n{"tailoredSummary": "...", "keywordsToAdd": ["..."], "reasoning": "...", "tailoredBullets": [{"index": <bullet index from the list below>, "text": "rewritten bullet"}]}\n\nResume summary: ${resume.summary || ''}\nResume skills: ${safeParseNames(resume.skills).join(', ')}\nJob description: ${jobDescription}\n\nExisting bullets (index: text):\n${bulletList || '(none)'}`;
+      const prompt = `You are a professional resume writer producing a truth-constrained, ATS-optimised professional summary, plus targeted bullet rewrites, for the job below.\n\nSUMMARY-WRITING PROCESS (follow in order):\n1. VERIFIED_RELEVANT_TERMS below are facts already confirmed true of this candidate (from their skills, experience and current summary) that this job also cares about. Build the summary AROUND these — do not just lightly reword the old summary.\n2. Structure the summary as 3-5 concise sentences, ~60-100 words total:\n   - Sentence 1: the candidate's professional identity/role level, plus their core stack/domain.\n   - Sentence 2-3: the strongest VERIFIED_RELEVANT_TERMS, phrased using the job's own terminology where it is truthfully equivalent to what the resume already says.\n   - Optional closing sentence: how their genuine experience translates into value (e.g. "with experience delivering maintainable, user-focused software"), only if grounded in real resume content.\n3. Do NOT use generic filler or weak intent language: "Interested in...", "Seeking...", "Passionate about...", "Looking to contribute...", "Motivated individual". Use evidence-based phrasing instead: "Skilled in...", "Experienced in...", "Hands-on experience with...", "Strong foundation in...", "Proficient in...".\n4. Do not list every skill in the resume — prioritise the terms this specific job cares about.\n5. Do NOT pad the summary with vague, unverifiable buzzwords that name nothing specific — e.g. "modern frameworks", "development workflows", "best practices", "industry-standard tools", "cutting-edge technologies", "software principles". Every noun in the summary must be a specific term from VERIFIED_RELEVANT_TERMS, the resume's own skills, or plain factual connective language — not a vague category word standing in for one.\n6. Also select up to 8 of the EXISTING bullet points below that are most relevant to this job, sharpening wording, ATS keyword alignment and action-verb strength (e.g. "resolved", "built", "delivered", "configured").\n\nRULES (do not break these):\n- Do NOT invent skills, numbers, employers, technologies or achievements not already present in the resume.\n- Terminology matching (allowed, not fabrication): if the resume already demonstrates a skill/tool/technology the job names with different wording (a synonym or slightly different phrase for the SAME true thing), prefer the job's exact term. Never do this for anything not genuinely evidenced in the resume.\n- Never copy the job description's own stated years-of-experience or seniority level into the summary as if it describes the candidate.\n\nRespond ONLY in this exact JSON format with no other text:\n{"tailoredSummary": "...", "keywordsToAdd": ["..."], "reasoning": "...", "tailoredBullets": [{"index": <bullet index from the list below>, "text": "rewritten bullet"}]}\n\nVERIFIED_RELEVANT_TERMS (already true of this candidate, matching this job): ${verifiedRelevantTerms.join(', ') || '(none found — work only from the resume summary/skills below)'}\nCurrent resume summary: ${resume.summary || ''}\nResume skills: ${safeParseNames(resume.skills).join(', ')}\nJob description: ${jobDescription}\n\nExisting bullets (index: text):\n${bulletList || '(none)'}`;
       // Gemini 3.x uses part of the output budget for reasoning, and this
       // response now also carries up to 8 rewritten bullets — give it room.
       const text = await callGemini(prompt, 3200);
       const parsed = JSON.parse(text.replace(/```json|```/g, '').trim());
-      const check = checkTextAgainstTruth(parsed.tailoredSummary || '', groundTruth, resume.summary || '');
+      const check = checkTextAgainstTruth(parsed.tailoredSummary || '', groundTruth, resume.summary || '', 6);
 
       const truthFlags = [...check.flags];
       const tailoredBullets = [];
@@ -173,7 +185,7 @@ async function tailorResume(resume, jobDescription) {
     } catch(e) { console.warn('Gemini tailor failed:', e.message); }
   }
 
-  const local = localTailorResume(resume, jobDescription);
+  const local = localTailorResume(resume, jobDescription, requiredSkills);
   const check = checkTextAgainstTruth(local.tailoredSummary, groundTruth, resume.summary || '');
   const tailoredBullets = flat
     // Skip short fragments (common from messy PDF text extraction) —
@@ -242,7 +254,7 @@ User message: ${message}`;
 
       let proposedSummary = null, summaryFlags = [];
       if (parsed.proposedSummary) {
-        const check = checkTextAgainstTruth(parsed.proposedSummary, groundTruth, currentSummary || resume.summary || '');
+        const check = checkTextAgainstTruth(parsed.proposedSummary, groundTruth, currentSummary || resume.summary || '', 6);
         proposedSummary = check.isSafe ? check.cleanedText : null;
         summaryFlags = check.flags;
       }
@@ -270,8 +282,9 @@ User message: ${message}`;
     proposedSummary = sentences.slice(0, Math.max(1, Math.ceil(sentences.length / 2))).join(' ');
     reply = 'Here is a shorter version of your summary.';
   } else if (/ats.?friendly|keyword/i.test(message) && job?.description) {
-    const scored = scoreResumeAgainstJob(resume, job.description);
-    const top = scored.matchedKeywords.slice(0, 3).join(', ');
+    const jobSkills = [...(job.requiredSkills || []), ...(job.preferredSkills || [])];
+    const scored = scoreResumeAgainstJob(resume, job.description, jobSkills);
+    const top = (scored.matchedSkills.length ? scored.matchedSkills : scored.matchedKeywords).slice(0, 3).join(', ');
     proposedSummary = top ? `${base} Strengths relevant to this role include ${top}.` : base;
     reply = 'I emphasised keywords already backed by your resume.';
   } else if (targetBullet) {
@@ -281,7 +294,7 @@ User message: ${message}`;
     reply = "Local mode (no Gemini key): try \"make it shorter\", \"make it more ATS friendly\", or \"rewrite the bullet about X\".";
   }
 
-  const check = proposedSummary ? checkTextAgainstTruth(proposedSummary, groundTruth, base) : null;
+  const check = proposedSummary ? checkTextAgainstTruth(proposedSummary, groundTruth, base, 6) : null;
   return {
     reply,
     proposedSummary: check ? (check.isSafe ? check.cleanedText : null) : null,

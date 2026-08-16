@@ -5,20 +5,28 @@ const { v4: uuidv4 } = require('uuid');
 const db = require('../config/db');
 const requireAuth = require('../middleware/auth');
 const { scoreResumeAgainstJob } = require('../utils/atsScoring');
+const { getJob } = require('../utils/jobProvider');
 
 const router = express.Router();
 router.use(requireAuth);
 
 // POST /api/ats/scan
+// Optional jobId: when the scan is for a job from the local catalogue,
+// its curated requiredSkills/preferredSkills (already hand-picked hard
+// skills, see seedJobs.json) drive the skills sub-score instead of
+// re-deriving skills from job-ad prose — a much more reliable signal.
 router.post('/scan', (req, res) => {
-  const { resumeId, jobDescription } = req.body;
+  const { resumeId, jobDescription, jobId } = req.body;
   if (!resumeId || !jobDescription)
     return res.status(400).json({ error: 'resumeId and jobDescription are required.' });
 
   const resume = db.getResumeById(resumeId, req.userId);
   if (!resume) return res.status(404).json({ error: 'Resume not found' });
 
-  const result = scoreResumeAgainstJob(resume, jobDescription);
+  const job = jobId ? getJob(jobId) : null;
+  const requiredSkills = job ? [...(job.requiredSkills || []), ...(job.preferredSkills || [])] : [];
+
+  const result = scoreResumeAgainstJob(resume, jobDescription, requiredSkills);
 
   // Save scan to history
   db.saveAtsScan({

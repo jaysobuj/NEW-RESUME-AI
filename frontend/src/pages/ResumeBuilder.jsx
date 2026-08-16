@@ -262,12 +262,20 @@ export default function ResumeBuilder() {
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: 13,
               }}
             >
-              <span>{r.title} <span style={{ color: 'var(--text-muted)' }}>v{r.version}</span></span>
+              <span
+                title={r.title}
+                style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
+              >
+                {r.title} <span style={{ color: 'var(--text-muted)' }}>v{r.version}</span>
+              </span>
               <button
-                className="repeater-remove"
                 onClick={(e) => { e.stopPropagation(); handleDelete(r.id); }}
-                title="Delete"
-              >✕</button>
+                title="Delete this resume"
+                style={{
+                  flexShrink: 0, marginLeft: 8, background: '#fee2e2', color: '#b91c1c', border: 'none',
+                  borderRadius: 6, padding: '3px 8px', fontSize: 12, cursor: 'pointer',
+                }}
+              >🗑️</button>
             </div>
           ))}
         </Card>

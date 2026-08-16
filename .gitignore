@@ -3,6 +3,7 @@ node_modules/
 backend/database/db.json
 backend/database/db.json.tmp
 backend/database/*.corrupt-*
+backend/.dev-server.pid
 frontend/build/
 npm-debug.log*
 .DS_Store

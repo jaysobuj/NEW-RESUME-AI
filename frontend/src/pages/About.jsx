@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 import PublicLayout from '../components/PublicLayout';
 
 const TEAM = [
+  { name: 'MD Jahirul Islam Sobuj', role: 'Backend Developer / API & Security Developer', icon: '🛠️' },
   { name: 'Adnan Sami', role: 'Frontend Developer / UI Developer', icon: '🎨' },
-  { name: 'MD Jahirul Sobuj', role: 'Backend Developer / API & Security Developer', icon: '🛠️' },
   { name: 'MD Shadman Hasan', role: 'Testing & Documentation Lead', icon: '🧪' },
-  { name: 'Kaniz Fatema', role: 'Quality Assurance & Documentation Reviewer', icon: '✅' },
+  { name: 'Kaniz Fatema Tumpa', role: 'Quality Assurance & Documentation Reviewer', icon: '✅' },
 ];
 
 const VALUES = [

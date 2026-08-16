@@ -57,8 +57,18 @@ export function AuthProvider({ children }) {
     setUser(null);
   };
 
+  // Re-fetches the current user (e.g. after a plan upgrade) so the
+  // Sidebar/Dashboard/Settings all reflect the change immediately
+  // without a full page reload.
+  const refreshUser = async () => {
+    const res = await api.get('/auth/me');
+    setUser(res.data.user);
+    localStorage.setItem('user', JSON.stringify(res.data.user));
+    return res.data.user;
+  };
+
   return (
-    <AuthContext.Provider value={{ user, login, register, logout, loading }}>
+    <AuthContext.Provider value={{ user, login, register, logout, loading, refreshUser }}>
       {children}
     </AuthContext.Provider>
   );
